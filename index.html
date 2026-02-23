@@ -623,14 +623,16 @@
       background: var(--color-terminal);
       border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .mockup-header {
       padding: 1rem 1.25rem;
       display: flex;
       gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .term-dot {
@@ -686,18 +688,18 @@
 
     /* ===== CLAUDE MOCKUP ===== */
     .mockup-claude {
-      background: var(--color-bg-white);
+      background: #FAFAFA;
       border-radius: 1rem;
       border: 1px solid var(--color-border);
       overflow: hidden;
-      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.06);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
       display: flex;
       height: 20rem;
     }
 
     .claude-sidebar {
       width: 5rem;
-      background: #F8FAFC;
+      background: #F0F0F0;
       border-right: 1px solid var(--color-border);
       padding: 1.5rem 1rem;
       display: flex;
@@ -708,17 +710,20 @@
     .sidebar-item {
       height: 3rem;
       border-radius: 0.5rem;
-      background: var(--color-accent-light);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-item:nth-child(1) {
+      background: var(--color-primary);
+      opacity: 0.8;
     }
 
     .sidebar-item:nth-child(2) {
-      background: var(--color-border);
       opacity: 0.5;
     }
 
     .sidebar-item:nth-child(3) {
-      background: var(--color-border);
-      opacity: 0.5;
+      opacity: 0.3;
     }
 
     .claude-main {
@@ -731,9 +736,11 @@
 
     .claude-card-mock {
       height: 80px;
+      background: #FFF;
       border: 1px solid var(--color-border);
       border-radius: 12px;
       padding: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
     }
 
     .claude-card-mock .mock-line {
@@ -741,6 +748,24 @@
       background: var(--color-border);
       border-radius: 4px;
       margin-bottom: 8px;
+    }
+
+    /* ===== MODULES REFINEMENT ===== */
+    .module-section {
+      padding: 8rem 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .module-section.bg-white {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .brutal-marker {
+      width: 0.4rem;
+      height: 0.4rem;
+      background: var(--color-primary);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
     }
 
 
@@ -780,50 +805,91 @@
       font-size: 1rem;
     }
 
-    /* ===== OFFER TABLE ===== */
+    /* ===== OFFER TABLE ====== */
     .offer-table {
-      background: var(--color-bg-white);
-      border-radius: 1rem;
+      background: var(--color-bg-main);
+      /* Match main background to blend */
+      border-radius: 0.5rem;
       border: 1px solid var(--color-border);
-      overflow: hidden;
       margin-top: 3rem;
+      padding: 1rem;
+    }
+
+    .offer-table-inner {
+      background: var(--color-bg-white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      /* faint internal border */
     }
 
     .offer-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 2rem;
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+      /* Receipt style dotted border */
+      transition: background 0.2s ease;
+    }
+
+    .offer-row:hover {
+      background: rgba(0, 0, 0, 0.02);
     }
 
     .offer-header {
-      font-size: 0.6875rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--color-text-secondary);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: #FAFAFA;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      background: none;
+    }
+
+    .offer-price {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .offer-row span:first-child {
+      font-weight: 500;
     }
 
     .offer-total {
-      background: var(--color-accent-light);
-      font-weight: 600;
+      background: none;
     }
 
     .offer-strike {
       text-decoration: line-through;
-      color: var(--color-text-secondary);
+      color: var(--color-text-light);
     }
 
     .offer-final {
-      background: var(--color-accent);
-      color: #FFF;
-      font-weight: 700;
-      font-size: 1.375rem;
+      background: none;
+      color: var(--color-text-primary);
       border-bottom: none;
-      padding: 1.75rem 2rem;
-      border-radius: 0 0 1rem 1rem;
+      border-top: 1px solid var(--color-text-primary);
+      /* Harsh black line for the total */
+      padding: 2.5rem 2rem;
+      align-items: flex-end;
+    }
+
+    .offer-final span:first-child {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-final .offer-price {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
 
     .offer-cta {
@@ -845,22 +911,26 @@
       margin: 0 auto;
     }
 
-    .shield-icon {
-      width: 3rem;
-      height: 3rem;
-      fill: var(--color-accent);
-      margin-bottom: 1.5rem;
-    }
-
     .trust-badges {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
+      gap: 0;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .trust-badges span {
+      padding: 0 1.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .trust-badges span:last-child {
+      border-right: none;
     }
 
     /* ===== TESTIMONIALS ===== */
@@ -893,34 +963,129 @@
 
     /* ===== FINAL CTA ===== */
     .final-cta {
-      background: var(--color-bg-cta);
+      background: radial-gradient(circle at 50% 50%, #1A1A1A 0%, #0A0A0A 100%);
       text-align: center;
-      padding: 6.25rem 0;
+      padding: 8rem 0;
     }
 
     .final-cta-sub {
       font-size: 1.125rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--color-accent);
       margin-bottom: 1rem;
     }
 
     .final-cta-title {
+      font-size: 4rem;
       margin-bottom: 0;
+      color: #FFF;
     }
 
     .final-cta-title .italic {
-      color: var(--color-text-secondary);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .subtitle-cta {
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 1.5rem;
     }
 
     .final-cta-btn {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       margin-bottom: 1.5rem;
+      background: #FFF;
+      color: #111;
+      border: 1px solid #FFF;
+    }
+
+    .final-cta-btn:hover {
+      background: #F0F0F0;
+      color: #000;
     }
 
     .final-cta-caption {
-      font-size: 0.875rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===== FAQ ACCORDION ===== */
+    .faq-list {
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      list-style: none;
+      /* remove default arrow */
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .faq-icon {
+      position: relative;
+      width: 1rem;
+      height: 1rem;
+      margin-left: 1rem;
+      flex-shrink: 0;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--color-text-secondary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon::before {
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      transform: translateY(-50%);
+    }
+
+    .faq-icon::after {
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      transform: translateX(-50%);
+    }
+
+    details[open] .faq-item summary {
+      margin-bottom: 0.5rem;
+    }
+
+    details[open] .faq-icon::after {
+      transform: translateX(-50%) rotate(90deg);
+    }
+
+    .faq-content {
+      padding-bottom: 1.5rem;
       color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .faq-content p {
+      margin-bottom: 0;
     }
 
     /* ===== FOOTER ===== */
@@ -1251,7 +1416,7 @@
     </section>
 
     <!-- ===== MODULE 1 ===== -->
-    <section class="section-pad bg-main" id="module-1">
+    <section class="module-section bg-main" id="module-1">
       <div class="container split-layout">
         <div class="split-content">
           <div class="badge reveal">MÓDULO 01</div>
@@ -1261,53 +1426,35 @@
           </h2>
           <ul class="check-list">
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 1 — Instalação Sem Erro:</strong> Setup correto no Windows, Mac e Linux. Fechamos as
                 brechas que 80% dos tutoriais ignoram e que causam tela vermelha dois dias depois. <em>Você sai com:
                   Antigravity rodando sem gargalos.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 2 — Workspace Profissional:</strong> A diferença gritante entre um projeto que trava na
                 terceira rota e um que engole tasks robustas. <em>Você sai com: Base limpa pronta para o
                   multi-agentes.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 3 — GitHub Integrado:</strong> Amarre seus repositórios. O agente lê, propõe pull
                 requests e commita código direto onde importa. <em>Você sai com: Versionamento inteligente e invisível
                   ao toque.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 4 — Agent Rules à Prova de Balas:</strong> Trave os limites do robô. Chega de IA que
                 começa apagando arquivos da root. <em>Você sai com: Meu template pessoal de regras testadas.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 5 — Múltiplos Agentes:</strong> Orquestração sem choque de cabeças. O agente de front
                 não deve brigar com o de deploy. <em>Você sai com: Workflow de 2+ agentes integrados.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 6 — Ferramentas (MCPs):</strong> Adicione leitura nativa do seu browser, pesquisa no
                 Google e manipulação de DB remoto ao agente. <em>Você sai com: Agentes armados até os dentes.</em></div>
             </li>
@@ -1355,7 +1502,7 @@
     </section>
 
     <!-- ===== MODULE 2 ===== -->
-    <section class="section-pad bg-white" id="module-2">
+    <section class="module-section bg-white" id="module-2">
       <div class="container split-layout split-reverse">
         <div class="split-content">
           <div class="badge reveal">MÓDULO 02</div>
@@ -1365,19 +1512,13 @@
           </h2>
           <ul class="check-list">
             <li>
-              <svg class="check-svg green" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 1 — Projetos com Contexto Ativo:</strong> Criação do "Project" no Claude injetando files
                 e documentações raiz pesadas. <em>Você sai com: Um Claude focado, que não te obriga a colar a spec
                   inteira a cada janela nova.</em></div>
             </li>
             <li>
-              <svg class="check-svg green" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="brutal-marker"></div>
               <div><strong>Aula 2 — Injectando Skills Automatizadas:</strong> Parametrize "Skills" estáticas que rodam
                 sem você redigitar blocos de regex. <em>Você sai com: Micro-rotinas do Claude ativadas com 3
                   cliques.</em></div>
@@ -1525,48 +1666,55 @@
           <span class="line-bold">O que está incluso</span>
         </h2>
         <div class="offer-table reveal">
-          <div class="offer-row offer-header">
-            <div>O QUE ESTÁ INCLUSO</div>
-            <div>VALOR</div>
-            <div class="offer-justify">POR QUE VALE</div>
-          </div>
-          <div class="offer-row">
-            <div><strong>Módulo 1:</strong> Antigravity do Zero ao Avançado — 8 aulas</div>
-            <div>R$ 297</div>
-            <div class="offer-justify">Consultoria individual custa R$100+/hora. São 6+ horas de conteúdo.</div>
-          </div>
-          <div class="offer-row">
-            <div><strong>Módulo 2:</strong> Claude Projects + Skills — 3 aulas</div>
-            <div>R$ 197</div>
-            <div class="offer-justify">Substitui semanas de tentativa e erro com caminho documentado.</div>
-          </div>
-          <div class="offer-row">
-            <div><strong>Bônus 1:</strong> Checklist Zero Erro</div>
-            <div>R$ 97</div>
-            <div class="offer-justify">Economiza 5+ horas/mês de retrabalho em configuração.</div>
-          </div>
-          <div class="offer-row">
-            <div><strong>Bônus 2:</strong> Templates de Agent Rules</div>
-            <div>R$ 147</div>
-            <div class="offer-justify">30+ horas de testes condensadas em templates prontos para copiar.</div>
-          </div>
-          <div class="offer-row">
-            <div><strong>Bônus 3:</strong> Pack de Skills Claude</div>
-            <div>R$ 147</div>
-            <div class="offer-justify">Skills prontas que economizam 20+ minutos cada uso.</div>
-          </div>
-          <div class="offer-row">
-            <div>Acesso vitalício + atualizações</div>
-            <div>R$ 97</div>
-            <div class="offer-justify">Ferramentas mudam rápido. Aulas atualizadas sem custo extra.</div>
-          </div>
-          <div class="offer-row offer-total">
-            <div>Valor Total</div>
-            <div class="offer-strike">R$ 982</div>
-          </div>
-          <div class="offer-row offer-final">
-            <div>SEU INVESTIMENTO (lançamento)</div>
-            <div>R$ 197</div>
+          <div class="offer-table-inner">
+            <div class="offer-row offer-header">
+              <div>O QUE ESTÁ INCLUSO</div>
+              <div>VALOR</div>
+              <div class="offer-justify">POR QUE VALE</div>
+            </div>
+            <div class="offer-row">
+              <div><strong>Módulo 1:</strong> Antigravity do Zero ao Avançado — 8 aulas</div>
+              <div class="offer-price">R$ 297</div>
+              <div class="offer-justify">Consultoria individual custa R$100+/hora. São 6+ horas de conteúdo.</div>
+            </div>
+            <div class="offer-row">
+              <div><strong>Módulo 2:</strong> Claude Projects + Skills — 3 aulas</div>
+              <div class="offer-price">R$ 197</div>
+              <div class="offer-justify">Substitui semanas de tentativa e erro com caminho documentado.</div>
+            </div>
+            <div class="offer-row">
+              <div><strong>Bônus 1:</strong> Checklist Zero Erro</div>
+              <div class="offer-price">R$ 97</div>
+              <div class="offer-justify">Economiza 5+ horas/mês de retrabalho em configuração.</div>
+            </div>
+            <div class="offer-row">
+              <div><strong>Bônus 2:</strong> Templates de Agent Rules</div>
+              <div class="offer-price">R$ 147</div>
+              <div class="offer-justify">30+ horas de testes condensadas em templates prontos para copiar.</div>
+            </div>
+            <div class="offer-row">
+              <div><strong>Bônus 3:</strong> Pack de Skills Claude</div>
+              <div class="offer-price">R$ 147</div>
+              <div class="offer-justify">Skills prontas que economizam 20+ minutos cada uso.</div>
+            </div>
+            <div class="offer-row">
+              <div>Acesso vitalício + atualizações</div>
+              <div class="offer-price">R$ 97</div>
+              <div class="offer-justify">Ferramentas mudam rápido. Aulas atualizadas sem custo extra.</div>
+            </div>
+            <div class="offer-row offer-total">
+              <div>Valor Total</div>
+              <div class="offer-strike offer-price">R$ 982</div>
+            </div>
+            <div class="offer-row offer-final">
+              <div>
+                <span>SEU INVESTIMENTO</span>
+                <br>
+                <span
+                  style="font-size: 0.8em; opacity: 0.6; font-weight: 400; text-transform: none;">(Lançamento)</span>
+              </div>
+              <div class="offer-price">R$ 197</div>
+            </div>
           </div>
         </div>
         <div class="offer-cta">
@@ -1577,15 +1725,10 @@
     </section>
 
     <!-- ===== GUARANTEE ===== -->
-    <section class="section-pad bg-main" id="guarantee">
+    <section class="section-pad dark-section" id="guarantee">
       <div class="container">
         <div class="guarantee-box">
-          <svg class="shield-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-          </svg>
-          <br>
-          <div class="badge reveal">RISCO ZERO</div>
+          <div class="badge reveal" style="border-color: rgba(255,255,255,0.2);">RISCO ZERO</div>
           <h2 class="section-title reveal">
             <span class="line-bold">A regra é boba de simples:</span>
             <span class="italic">7 Dias. Devolução Cega.</span>
@@ -1748,41 +1891,75 @@
         <h2 class="section-title reveal">
           <span class="line-bold">Dúvidas?</span>
         </h2>
-        <div class="check-list faq-list">
-          <div class="reveal">
-            <p><strong>Preciso saber programar?</strong></p>
-            <p class="card-text">Módulo 1 usa terminal — familiaridade básica com linha de comando é necessária. Não
-              precisa ser dev sênior, mas precisa saber abrir um terminal. Módulo 2 (Claude) é para qualquer
-              profissional, zero código.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>E se eu travar em algum passo?</strong></p>
-            <p class="card-text">As aulas são na tela, passo a passo. O Checklist Zero Erro (Bônus 1) é um guia de
-              referência rápida para cada configuração.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>As aulas são ao vivo ou gravadas?</strong></p>
-            <p class="card-text">Gravadas. No seu ritmo. Pausa, volta, configura junto.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>Funciona no Windows/Mac/Linux?</strong></p>
-            <p class="card-text">Sim. O Módulo 1 cobre os três.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>E se as ferramentas atualizarem?</strong></p>
-            <p class="card-text">Acesso vitalício com atualizações. Se algo mudar, atualizo as aulas e você recebe sem
-              custo.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>E se eu só usar uma das ferramentas?</strong></p>
-            <p class="card-text">Os dois módulos vêm juntos. Mas o módulo correspondente à ferramenta que você usa já
-              vale mais que o investimento total.</p>
-          </div>
-          <div class="reveal">
-            <p><strong>Posso usar para projetos de clientes?</strong></p>
-            <p class="card-text">Sim. O freelancer ou agência que entrega com ambiente profissional cobra mais e entrega
-              melhor. O setup é seu — use como quiser.</p>
-          </div>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>
+              <strong>Preciso saber programar?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Módulo 1 usa terminal — familiaridade básica com linha de comando é necessária. Não
+                precisa ser dev sênior, mas precisa saber abrir um terminal. Módulo 2 (Claude) é para qualquer
+                profissional, zero código.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>E se eu travar em algum passo?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>As aulas são na tela, passo a passo. O Checklist Zero Erro (Bônus 1) é um guia de
+                referência rápida para cada configuração.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>As aulas são ao vivo ou gravadas?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Gravadas. No seu ritmo. Pausa, volta, configura junto.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>Funciona no Windows/Mac/Linux?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Sim. O Módulo 1 cobre os três.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>E se as ferramentas atualizarem?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Acesso vitalício com atualizações. Se algo mudar, atualizo as aulas e você recebe sem custo.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>E se eu só usar uma das ferramentas?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Os dois módulos vêm juntos. Mas o módulo correspondente à ferramenta que você usa já
+                vale mais que o investimento total.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <strong>Posso usar para projetos de clientes?</strong>
+              <div class="faq-icon"></div>
+            </summary>
+            <div class="faq-content">
+              <p>Sim. O freelancer ou agência que entrega com ambiente profissional cobra mais e entrega
+                melhor. O setup é seu — use como quiser.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
