@@ -47,10 +47,11 @@
 
     body {
       font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv01', 'cv02';
       background-color: var(--color-bg-primary);
       color: var(--color-text-primary);
-      line-height: 1.7;
-      font-size: 16px;
+      line-height: 1.75;
+      font-size: 1rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -93,10 +94,10 @@
 
     /* ===== TYPOGRAPHY ===== */
     .title-h1 {
-      font-size: 48px;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
+      font-size: 2.375rem;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
     }
 
     .title-h1 .bold {
@@ -113,11 +114,11 @@
     }
 
     .section-title {
-      font-size: 36px;
+      font-size: 1.875rem;
       line-height: 1.15;
       font-weight: 400;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
     }
 
     .section-title .line-bold {
@@ -132,10 +133,10 @@
     }
 
     .subtitle {
-      font-size: 16px;
+      font-size: 1.0625rem;
       font-weight: 400;
       color: var(--color-text-secondary);
-      margin-bottom: 40px;
+      margin-bottom: 2.5rem;
     }
 
     .subtitle-narrow {
@@ -143,8 +144,8 @@
     }
 
     .hero-preheadline {
-      margin-bottom: 24px;
-      font-size: 14px;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
     }
 
     .subtitle-cta {
@@ -153,43 +154,43 @@
     }
 
     .cta-caption-mt {
-      margin-top: 16px;
+      margin-top: 1rem;
     }
 
     .cta-sub-mt {
-      margin-top: 24px;
+      margin-top: 1.5rem;
     }
 
     .footnote {
-      margin-top: 24px;
-      font-size: 14px;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
       font-style: italic;
     }
 
     .faq-list {
-      gap: 32px;
+      gap: 2rem;
     }
 
     /* ===== BADGES ===== */
     .badge {
-      font-size: 11px;
+      font-size: 0.6875rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--color-text-secondary);
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
       background: var(--color-bg-white);
       border: 1px solid var(--color-border);
       border-radius: 999px;
-      padding: 8px 18px;
+      padding: 0.5rem 1.125rem;
     }
 
     .badge .dot {
-      width: 6px;
-      height: 6px;
+      width: 0.375rem;
+      height: 0.375rem;
       background-color: var(--color-check);
       border-radius: 50%;
       animation: pulse-dot 2s ease-in-out infinite;
@@ -200,10 +201,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 32px;
+      padding: 1rem 2rem;
       border-radius: 9999px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 1rem;
       font-family: 'Inter', sans-serif;
       transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
@@ -212,15 +213,15 @@
     }
 
     .btn-primary {
-      background-color: var(--color-accent);
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
       color: #FFF;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 0.25rem 0.875rem rgba(37, 99, 235, 0.3), inset 0 0.0625rem 0 rgba(255, 255, 255, 0.15);
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+      opacity: 0.95;
+      transform: translateY(-0.0625rem);
+      box-shadow: 0 0.375rem 1.25rem rgba(37, 99, 235, 0.4), inset 0 0.0625rem 0 rgba(255, 255, 255, 0.2);
     }
 
     .btn-secondary {
@@ -235,13 +236,13 @@
     }
 
     .btn-large {
-      padding: 20px 48px;
-      font-size: 18px;
+      padding: 1.25rem 3rem;
+      font-size: 1.125rem;
     }
 
     .btn-xl {
-      padding: 24px 56px;
-      font-size: 18px;
+      padding: 1.5rem 3.5rem;
+      font-size: 1.125rem;
     }
 
     /* ===== LAYOUT ===== */
@@ -249,7 +250,7 @@
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 1.25rem;
     }
 
     .container-narrow {
@@ -257,7 +258,13 @@
     }
 
     .section-pad {
-      padding: 100px 0;
+      padding: 3.75rem 0;
+      /* 60px mobile text-only pad base */
+    }
+
+    .section-pad-visual {
+      padding: 5rem 0;
+      /* 80px mobile visual base */
     }
 
     .bg-main {
@@ -275,24 +282,26 @@
     /* ===== NAVBAR ===== */
     .navbar-wrapper {
       position: fixed;
-      top: 16px;
+      top: 1rem;
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 0 20px;
+      padding: 0 1.25rem;
     }
 
     .navbar {
-      background-color: var(--color-bg-white);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(1rem);
+      -webkit-backdrop-filter: blur(1rem);
       max-width: 780px;
       margin: 0 auto;
       border-radius: 999px;
-      padding: 8px 12px 8px 24px;
+      padding: 0.5rem 0.75rem 0.5rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(229, 227, 220, 0.6);
+      box-shadow: 0 0.125rem 1.25rem rgba(0, 0, 0, 0.06);
       transition: box-shadow 0.3s ease;
     }
 
@@ -309,8 +318,8 @@
 
     .nav-links {
       display: none;
-      gap: 24px;
-      font-size: 14px;
+      gap: 1.5rem;
+      font-size: 0.875rem;
       font-weight: 400;
       color: var(--color-text-secondary);
     }
@@ -320,8 +329,8 @@
     }
 
     .nav-btn-desktop .btn {
-      padding: 10px 24px;
-      font-size: 14px;
+      padding: 0.625rem 1.5rem;
+      font-size: 0.875rem;
     }
 
     .nav-btn-desktop {
@@ -332,19 +341,19 @@
     .nav-hamburger {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 0.25rem;
       cursor: pointer;
-      padding: 8px;
+      padding: 0.5rem;
       background: none;
       border: none;
     }
 
     .nav-hamburger span {
       display: block;
-      width: 20px;
-      height: 2px;
+      width: 1.25rem;
+      height: 0.125rem;
       background: var(--color-text-primary);
-      border-radius: 2px;
+      border-radius: 0.125rem;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
@@ -364,17 +373,19 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 72px;
-      left: 20px;
-      right: 20px;
-      background: var(--color-bg-white);
-      border-radius: 16px;
+      top: 4.5rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(1.25rem);
+      -webkit-backdrop-filter: blur(1.25rem);
+      border-radius: 1rem;
       border: 1px solid var(--color-border);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
       z-index: 99;
-      padding: 24px;
+      padding: 1.5rem;
       flex-direction: column;
-      gap: 16px;
+      gap: 1rem;
     }
 
     .mobile-menu.open {
@@ -382,34 +393,34 @@
     }
 
     .mobile-menu a {
-      font-size: 16px;
+      font-size: 1rem;
       color: var(--color-text-secondary);
-      padding: 8px 0;
+      padding: 0.5rem 0;
     }
 
     .mobile-menu .btn {
       width: 100%;
-      margin-top: 8px;
+      margin-top: 0.5rem;
     }
 
     /* ===== HERO ===== */
     .hero {
-      padding: 140px 0 100px;
+      padding: 8.75rem 0 6.25rem;
       text-align: center;
     }
 
     .hero .subtitle {
       max-width: 600px;
-      margin: 0 auto 40px;
+      margin: 0 auto 2.5rem;
     }
 
     .hero-actions {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 1rem;
       justify-content: center;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 2rem;
     }
 
     .hero-actions .btn {
@@ -417,27 +428,27 @@
     }
 
     .social-proof {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: var(--color-text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 0.5rem;
     }
 
     /* ===== LOGOS STRIP ===== */
     .logos-strip {
-      padding: 40px 0;
+      padding: 2.5rem 0;
       text-align: center;
       border-bottom: 1px solid var(--color-border);
     }
 
     .logos-label {
-      font-size: 11px;
+      font-size: 0.6875rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--color-text-light);
-      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
     }
 
     .logos-grid {
@@ -454,54 +465,61 @@
     /* ===== CARDS ===== */
     .card {
       background: var(--color-bg-white);
-      border-radius: 16px;
-      padding: 32px;
-      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid rgba(229, 227, 220, 0.7);
+      box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.04), 0 0.375rem 1rem rgba(0, 0, 0, 0.04);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      transform: translateY(-0.25rem);
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.06), 0 1rem 2.5rem rgba(0, 0, 0, 0.06);
     }
 
     .card-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: inline-block;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.875rem;
+      background: var(--color-accent-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .card-title {
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
     }
 
     .card-text {
       color: var(--color-text-secondary);
-      font-size: 15px;
+      font-size: 0.9375rem;
     }
 
     /* ===== GRIDS ===== */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-      margin-top: 48px;
+      gap: 2rem;
+      margin-top: 3rem;
     }
 
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-      margin-top: 48px;
+      gap: 2rem;
+      margin-top: 3rem;
     }
 
     /* ===== SPLIT LAYOUT ===== */
     .split-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 3rem;
       align-items: center;
     }
 
@@ -509,21 +527,21 @@
     .check-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-top: 32px;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
     .check-list li {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 0.75rem;
     }
 
     .check-svg {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      margin-top: 2px;
+      width: 1.375rem;
+      height: 1.375rem;
+      margin-top: 0.125rem;
     }
 
     .check-svg.blue {
@@ -539,27 +557,27 @@
     }
 
     .not-for-list li {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
 
     /* ===== TERMINAL MOCKUP ===== */
     .mockup-terminal {
       background: var(--color-terminal);
-      border-radius: 16px;
+      border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
     }
 
     .mockup-header {
-      padding: 16px 20px;
+      padding: 1rem 1.25rem;
       display: flex;
-      gap: 8px;
+      gap: 0.5rem;
       background: rgba(255, 255, 255, 0.05);
     }
 
     .term-dot {
-      width: 12px;
-      height: 12px;
+      width: 0.75rem;
+      height: 0.75rem;
       border-radius: 50%;
     }
 
@@ -576,15 +594,15 @@
     }
 
     .mockup-content {
-      padding: 24px;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0.625rem;
     }
 
     .code-line {
-      height: 12px;
-      border-radius: 4px;
+      height: 0.75rem;
+      border-radius: 0.25rem;
     }
 
     .code-line-gray {
@@ -600,38 +618,38 @@
     }
 
     .cursor-blink {
-      width: 8px;
-      height: 16px;
+      width: 0.5rem;
+      height: 1rem;
       background: var(--color-accent);
-      border-radius: 2px;
+      border-radius: 0.125rem;
       animation: blink 1s steps(1) infinite;
-      margin-top: 8px;
+      margin-top: 0.5rem;
     }
 
     /* ===== CLAUDE MOCKUP ===== */
     .mockup-claude {
       background: var(--color-bg-white);
-      border-radius: 16px;
+      border-radius: 1rem;
       border: 1px solid var(--color-border);
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.06);
       display: flex;
-      height: 320px;
+      height: 20rem;
     }
 
     .claude-sidebar {
-      width: 80px;
+      width: 5rem;
       background: #F8FAFC;
       border-right: 1px solid var(--color-border);
-      padding: 24px 16px;
+      padding: 1.5rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 1rem;
     }
 
     .sidebar-item {
-      height: 48px;
-      border-radius: 8px;
+      height: 3rem;
+      border-radius: 0.5rem;
       background: var(--color-accent-light);
     }
 
@@ -669,25 +687,60 @@
 
 
 
+    /* ===== PROOF VISUAL ===== */
+    .proof-placeholder {
+      border-radius: 0.75rem;
+      height: 13.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .proof-placeholder-dark {
+      background: var(--color-terminal);
+      color: #FFF;
+    }
+
+    .proof-placeholder-light {
+      background: #F0F4FF;
+      color: var(--color-accent);
+    }
+
+    .proof-caption {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+
+    .proof-footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-style: italic;
+      color: var(--color-text-light);
+      font-size: 1rem;
+    }
+
     /* ===== OFFER TABLE ===== */
     .offer-table {
       background: var(--color-bg-white);
-      border-radius: 16px;
+      border-radius: 1rem;
       border: 1px solid var(--color-border);
       overflow: hidden;
-      margin-top: 48px;
+      margin-top: 3rem;
     }
 
     .offer-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 24px;
+      padding: 1.25rem 1.5rem;
       border-bottom: 1px solid var(--color-border);
     }
 
     .offer-header {
-      font-size: 11px;
+      font-size: 0.6875rem;
       font-weight: 600;
       color: var(--color-text-secondary);
       text-transform: uppercase;
@@ -709,13 +762,22 @@
       background: var(--color-accent);
       color: #FFF;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 1.375rem;
       border-bottom: none;
+      padding: 1.75rem 2rem;
+      border-radius: 0 0 1rem 1rem;
     }
 
     .offer-cta {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 2.5rem;
+    }
+
+    .offer-justify {
+      font-size: 0.8125rem;
+      color: #6B7280;
+      text-align: left;
+      display: none;
     }
 
     /* ===== GUARANTEE ===== */
@@ -726,19 +788,19 @@
     }
 
     .shield-icon {
-      width: 48px;
-      height: 48px;
+      width: 3rem;
+      height: 3rem;
       fill: var(--color-accent);
-      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
     }
 
     .trust-badges {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
-      margin-top: 32px;
-      font-size: 14px;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.875rem;
       font-weight: 600;
       color: var(--color-text-secondary);
     }
@@ -746,28 +808,28 @@
     /* ===== TESTIMONIALS ===== */
     .stars {
       color: var(--color-stars);
-      font-size: 20px;
-      margin-bottom: 16px;
-      letter-spacing: 2px;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.125rem;
     }
 
     .testi-text {
       font-style: italic;
       color: var(--color-text-secondary);
-      margin-bottom: 24px;
-      font-size: 15px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9375rem;
     }
 
     .testi-author strong {
       display: block;
       color: var(--color-text-primary);
-      font-size: 14px;
+      font-size: 0.875rem;
     }
 
     .testi-author span {
       color: var(--color-text-light);
       text-transform: uppercase;
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.05em;
     }
 
@@ -775,14 +837,14 @@
     .final-cta {
       background: var(--color-bg-cta);
       text-align: center;
-      padding: 100px 0;
+      padding: 6.25rem 0;
     }
 
     .final-cta-sub {
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 600;
       color: var(--color-accent);
-      margin-bottom: 16px;
+      margin-bottom: 1rem;
     }
 
     .final-cta-title {
@@ -794,12 +856,12 @@
     }
 
     .final-cta-btn {
-      margin-top: 40px;
-      margin-bottom: 24px;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .final-cta-caption {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: var(--color-text-secondary);
     }
 
@@ -807,28 +869,28 @@
     .footer {
       background: var(--color-footer);
       color: #FFF;
-      padding: 60px 0;
+      padding: 3.75rem 0;
     }
 
     .footer-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 1.5rem;
       text-align: center;
     }
 
     .footer-logo {
       font-weight: 700;
-      font-size: 20px;
+      font-size: 1.25rem;
       letter-spacing: -0.02em;
     }
 
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 1.5rem;
       color: var(--color-text-light);
-      font-size: 14px;
+      font-size: 0.875rem;
     }
 
     .footer-links a:hover {
@@ -843,20 +905,21 @@
     /* ===== BACK TO TOP ===== */
     .back-to-top {
       position: fixed;
-      bottom: 32px;
-      right: 32px;
-      width: 44px;
-      height: 44px;
-      background: var(--color-accent);
+      bottom: 2rem;
+      right: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(37, 99, 235, 0.9);
+      backdrop-filter: blur(0.5rem);
       color: #FFF;
       border: none;
-      border-radius: 50%;
-      font-size: 20px;
+      border-radius: 0.75rem;
+      font-size: 1.25rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 0.25rem 0.875rem rgba(37, 99, 235, 0.3);
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
@@ -869,34 +932,40 @@
     }
 
     .back-to-top:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      transform: translateY(-0.125rem);
+      box-shadow: 0 0.375rem 1.25rem rgba(37, 99, 235, 0.4);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (min-width: 768px) {
       .title-h1 {
-        font-size: 88px;
+        font-size: 4.5rem;
       }
 
       .section-title {
-        font-size: 56px;
+        font-size: 2.75rem;
       }
 
       .subtitle {
-        font-size: 18px;
+        font-size: 1.1875rem;
       }
 
       .section-pad {
-        padding: 120px 0;
+        padding: 5rem 0;
+        /* Text-only sections default to 80px on desktop */
+      }
+
+      .section-pad-visual {
+        padding: 7.5rem 0;
+        /* Visual sections default to 120px on desktop */
       }
 
       .container {
-        padding: 0 24px;
+        padding: 0 1.5rem;
       }
 
       .hero {
-        padding: 180px 0 120px;
+        padding: 11.25rem 0 7.5rem;
       }
 
       .hero-actions {
@@ -921,6 +990,10 @@
 
       .grid-2 {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .offer-justify {
+        display: block;
       }
 
       .grid-2x2 {
@@ -949,17 +1022,30 @@
     /* Extra small mobile — ensure nothing overflows */
     @media (max-width: 374px) {
       .title-h1 {
-        font-size: 36px;
+        font-size: 2rem;
       }
 
       .section-title {
-        font-size: 28px;
+        font-size: 1.5rem;
       }
 
       .logos-grid {
-        gap: 20px;
-        font-size: 16px;
+        gap: 1.25rem;
+        font-size: 1rem;
       }
+    }
+
+    /* ===== ANIMATIONS REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -997,18 +1083,18 @@
     <!-- ===== HERO ===== -->
     <section class="section-pad bg-main hero" id="hero">
       <div class="container">
-        <p class="subtitle subtitle-narrow hero-preheadline">Para devs, criadores e
+        <p class="subtitle subtitle-narrow hero-preheadline reveal">Para devs, criadores e
           profissionais que já usam Antigravity ou Claude — mas sabem que estão tirando 20% do potencial dessas
           ferramentas</p>
-        <div class="badge">
+        <div class="badge reveal">
           <span class="dot"></span> PRÉ-LANÇAMENTO EXCLUSIVO
         </div>
-        <h1 class="title-h1">
+        <h1 class="title-h1 reveal">
           <span class="bold">Você passa horas configurando IA — e no dia seguinte precisa configurar tudo de
             novo.</span>
           <span class="italic">O problema não é a ferramenta. É o setup.</span>
         </h1>
-        <p class="subtitle">
+        <p class="subtitle reveal">
           Em duas aulas práticas, eu te mostro na tela como montar o Antigravity com agentes, MCPs e memória permanente
           — e como transformar o Claude em um sistema com contexto e automação. Uma tarde. Você sai com os dois
           funcionando.
@@ -1038,49 +1124,49 @@
     </section>
 
     <!-- ===== PROBLEM (DOR) ===== -->
-    <section class="section-pad bg-main" id="problem">
+    <section class="section-pad section-pad-text bg-main" id="problem">
       <div class="container container-narrow">
-        <div class="badge">O PROBLEMA</div>
-        <h2 class="section-title">
+        <div class="badge reveal">O PROBLEMA</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Você está usando as ferramentas certas do jeito errado.</span>
           <span class="italic">E isso está te custando horas todo dia.</span>
         </h2>
-        <p class="subtitle">Você baixou o Antigravity, abriu, tentou configurar. Apareceu erro de terminal. Você
+        <p class="subtitle reveal">Você baixou o Antigravity, abriu, tentou configurar. Apareceu erro de terminal. Você
           pesquisou, achou um tutorial desatualizado de 3 meses atrás que já não funciona. Aplicou metade, quebrou outra
           coisa. Três horas depois, seu "setup" funciona mais ou menos — e você comemora como se tivesse conquistado
           algo.</p>
-        <p class="subtitle">Não conquistou. Você improvisou. E ambiente improvisado é o inimigo silencioso da sua
+        <p class="subtitle reveal">Não conquistou. Você improvisou. E ambiente improvisado é o inimigo silencioso da sua
           produtividade.</p>
-        <p class="subtitle">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto inteiro do
+        <p class="subtitle reveal">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto inteiro do
           seu projeto de novo, dá as mesmas instruções que deu ontem, recebe uma resposta genérica, ajusta, pede de
           novo, e 40 minutos depois tem algo "ok." Amanhã, tudo isso reseta. Contexto zero. Memória zero. Você está
           pagando a assinatura mais cara do mercado para usar um chatbot sem memória.</p>
-        <p class="subtitle"><strong>Agora faça a conta que ninguém faz:</strong></p>
-        <p class="subtitle">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são 30
+        <p class="subtitle reveal"><strong>Agora faça a conta que ninguém faz:</strong></p>
+        <p class="subtitle reveal">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são 30
           horas por mês. A R$50/hora, são R$1.500 por mês evaporando. Em 3 meses, R$4.500. Em um ano, R$18.000.</p>
-        <p class="subtitle">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de uso com
+        <p class="subtitle reveal">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de uso com
           o tempo que para de desperdiçar.</p>
-        <p class="subtitle"><strong>A ferramenta não é o problema. A configuração improvisada é.</strong></p>
+        <p class="subtitle reveal"><strong>A ferramenta não é o problema. A configuração improvisada é.</strong></p>
       </div>
     </section>
 
     <!-- ===== ENEMY (INIMIGO) ===== -->
-    <section class="section-pad bg-white" id="enemy">
+    <section class="section-pad section-pad-text bg-white" id="enemy">
       <div class="container container-narrow">
-        <div class="badge">O INIMIGO</div>
-        <h2 class="section-title">
+        <div class="badge reveal">O INIMIGO</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Dopamina de setup</span>
           <span class="italic">não paga boleto.</span>
         </h2>
-        <p class="subtitle">Você conhece esse ciclo: instala ferramenta nova → passa a tarde configurando → roda um
+        <p class="subtitle reveal">Você conhece esse ciclo: instala ferramenta nova → passa a tarde configurando → roda um
           teste → funciona "mais ou menos" → posta no Twitter → recebe likes → sente que avançou.</p>
-        <p class="subtitle">Na semana seguinte, está na mesma.</p>
-        <p class="subtitle">Isso é dopamina de produtividade. A sensação de que você está avançando — sem avançar de
+        <p class="subtitle reveal">Na semana seguinte, está na mesma.</p>
+        <p class="subtitle reveal">Isso é dopamina de produtividade. A sensação de que você está avançando — sem avançar de
           verdade.</p>
-        <p class="subtitle">Quem avança é quem tem um ambiente configurado tão bem que para de pensar nele. Os agentes
+        <p class="subtitle reveal">Quem avança é quem tem um ambiente configurado tão bem que para de pensar nele. Os agentes
           executam. O Claude lembra do contexto. E a pessoa foca no que realmente importa: criar produtos, entregar
           projetos, fechar clientes, gerar receita.</p>
-        <p class="subtitle"><strong>A diferença entre os dois? Uma tarde de configuração profissional.</strong></p>
+        <p class="subtitle reveal"><strong>A diferença entre os dois? Uma tarde de configuração profissional.</strong></p>
       </div>
     </section>
 
@@ -1088,28 +1174,29 @@
     <section class="section-pad bg-main text-center" id="cta1">
       <div class="container">
         <a href="#offer" class="btn btn-primary btn-xl">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
-        <p class="final-cta-caption cta-caption-mt">Acesso imediato · Preço de lançamento até [DATA]</p>
+        <p class="final-cta-caption cta-caption-mt">Acesso imediato · Preço de lançamento até 10 de março</p>
       </div>
     </section>
 
     <!-- ===== AUTHORITY (AUTORIDADE) ===== -->
-    <section class="section-pad bg-white" id="authority">
+    <section class="section-pad section-pad-text bg-white" id="authority">
       <div class="container container-narrow">
-        <div class="badge">QUEM ENSINA</div>
-        <h2 class="section-title">
+        <div class="badge reveal">QUEM ENSINA</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Quem te ensina</span>
           <span class="italic">e por que isso funciona</span>
         </h2>
-        <p class="subtitle">Eu sou [SEU NOME]. Nos últimos [X meses], configurei [X] ambientes de IA do zero — para
-          projetos meus e para [clientes/projetos reais]. Quebrei mais configurações do que gostaria de admitir. Mas
+        <p class="subtitle reveal">Eu sou Henrique Caner. Nos últimos 6 meses, configurei mais de 30
+          ambientes de IA do zero — para projetos meus e para clientes reais. Quebrei mais configurações do que gostaria
+          de admitir. Mas
           cada erro virou um passo documentado que evita que você cometa o mesmo.</p>
-        <p class="subtitle"><strong>Algumas coisas que aprendi no caminho:</strong></p>
-        <p class="subtitle">A maioria dos erros no Antigravity acontece nos primeiros 5 minutos de instalação — em
+        <p class="subtitle reveal"><strong>Algumas coisas que aprendi no caminho:</strong></p>
+        <p class="subtitle reveal">A maioria dos erros no Antigravity acontece nos primeiros 5 minutos de instalação — em
           configurações que ninguém menciona. Agent Rules mal escritas são responsáveis por 80% das alucinações que as
           pessoas reclamam. A estrutura Brain resolve o problema de contexto limitado de forma permanente — e quase
           ninguém sabe que ela existe. E 99% das pessoas usam o Claude como chatbot, quando Projects + Skills
           transformam ele em sistema de produção.</p>
-        <p class="subtitle">Essas descobertas levaram semanas. O AI Like a PRO condensa tudo em duas aulas práticas. Eu
+        <p class="subtitle reveal">Essas descobertas levaram semanas. O AI Like a PRO condensa tudo em duas aulas práticas. Eu
           abro minha tela e você monta junto. Sem slides. Sem teoria. Sem módulo de mindset.</p>
       </div>
     </section>
@@ -1118,8 +1205,8 @@
     <section class="section-pad bg-main" id="module-1">
       <div class="container split-layout">
         <div class="split-content">
-          <div class="badge">MÓDULO 01</div>
-          <h2 class="section-title">
+          <div class="badge reveal">MÓDULO 01</div>
+          <h2 class="section-title reveal">
             <span class="line-bold">Google Antigravity: do Zero ao Avançado</span>
             <span class="italic">8 aulas práticas. Tela aberta. Resultado no final.</span>
           </h2>
@@ -1198,7 +1285,7 @@
           </ul>
         </div>
         <div class="split-mockup">
-          <div class="mockup-terminal">
+          <div class="mockup-terminal reveal">
             <div class="mockup-header">
               <div class="term-dot term-dot-r"></div>
               <div class="term-dot term-dot-y"></div>
@@ -1224,8 +1311,8 @@
     <section class="section-pad bg-white" id="module-2">
       <div class="container split-layout split-reverse">
         <div class="split-content">
-          <div class="badge">MÓDULO 02</div>
-          <h2 class="section-title">
+          <div class="badge reveal">MÓDULO 02</div>
+          <h2 class="section-title reveal">
             <span class="line-bold">Claude: O Sistema que Trabalha por Você</span>
             <span class="italic">3 aulas práticas. O Claude nunca mais vai ser "só um chatbot."</span>
           </h2>
@@ -1262,7 +1349,7 @@
             configurado é simples. O poder está no setup certo, não em 40 horas de vídeo.</p>
         </div>
         <div class="split-mockup">
-          <div class="mockup-claude">
+          <div class="mockup-claude reveal">
             <div class="claude-sidebar">
               <div class="sidebar-item"></div>
               <div class="sidebar-item"></div>
@@ -1283,33 +1370,59 @@
       </div>
     </section>
 
-    <!-- ===== FOR WHO ===== -->
-    <section class="section-pad bg-main" id="for-who">
+    <!-- ===== PROVA VISUAL ===== -->
+    <section class="section-pad bg-main" id="proof">
       <div class="container">
-        <div class="badge">PARA QUEM É</div>
-        <h2 class="section-title">
+        <div class="badge reveal">PROVA VISUAL</div>
+        <h2 class="section-title reveal">
+          <span class="line-bold">Veja como ficam os dois ambientes</span>
+        </h2>
+        <p class="subtitle reveal">Screenshots reais do setup completo após as aulas</p>
+        <div class="grid-2">
+          <div>
+            <div class="proof-placeholder proof-placeholder-dark">
+              📸 Screenshot do Antigravity — em breve
+            </div>
+            <p class="proof-caption">Workspace organizado, agentes em paralelo, Brain ativo. Montado em uma tarde.</p>
+          </div>
+          <div>
+            <div class="proof-placeholder proof-placeholder-light">
+              📸 Screenshot do Claude Projects — em breve
+            </div>
+            <p class="proof-caption">Projeto com contexto persistente, Skills automatizadas executando.</p>
+          </div>
+        </div>
+        <p class="proof-footer">Os dois funcionando juntos. Montados do zero. Em uma tarde.</p>
+      </div>
+    </section>
+
+    <!-- ===== FOR WHO ===== -->
+    <section class="section-pad bg-white" id="for-who">
+      <div class="container">
+        <div class="badge reveal">PARA QUEM É</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Feito pra você se:</span>
         </h2>
         <div class="grid-2">
-          <div class="card">
+          <div class="card reveal">
             <div class="card-icon">💻</div>
             <h3 class="card-title">Dev</h3>
             <p class="card-text">Você quer pular semanas de tentativa e erro — ir direto pra configuração que funciona e
               focar em criar, não em configurar.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="card-icon">🏢</div>
             <h3 class="card-title">Freelancer / Agência</h3>
             <p class="card-text">Você quer entregar projetos com IA no nível profissional — e cobrar de acordo. Setup
               amador entrega resultado amador. Setup profissional entrega resultado que o cliente paga mais.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="card-icon">🚀</div>
             <h3 class="card-title">Criador / Empreendedor</h3>
             <p class="card-text">Você quer que o Claude trabalhe como sistema de produção — gerando resultado
               consistente, não respostas aleatórias.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="card-icon">🤖</div>
             <h3 class="card-title">Usuário Atual</h3>
             <p class="card-text">Você já usa Antigravity ou Claude mas sabe que está na superfície — e que está perdendo
@@ -1320,9 +1433,9 @@
     </section>
 
     <!-- ===== NOT FOR WHO ===== -->
-    <section class="section-pad bg-white" id="not-for-who">
+    <section class="section-pad bg-main" id="not-for-who">
       <div class="container container-narrow">
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           <span class="line-bold">Não é pra você se:</span>
         </h2>
         <ul class="check-list not-for-list">
@@ -1355,40 +1468,47 @@
     </section>
 
     <!-- ===== OFFER ===== -->
-    <section class="section-pad bg-main" id="offer">
+    <section class="section-pad bg-white" id="offer">
       <div class="container container-narrow">
-        <div class="badge">A OFERTA</div>
-        <h2 class="section-title">
+        <div class="badge reveal">A OFERTA</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">O que está incluso</span>
         </h2>
-        <div class="offer-table">
+        <div class="offer-table reveal">
           <div class="offer-row offer-header">
             <div>O QUE ESTÁ INCLUSO</div>
             <div>VALOR</div>
+            <div class="offer-justify">POR QUE VALE</div>
           </div>
           <div class="offer-row">
             <div><strong>Módulo 1:</strong> Antigravity do Zero ao Avançado — 8 aulas</div>
             <div>R$ 297</div>
+            <div class="offer-justify">Consultoria individual custa R$100+/hora. São 6+ horas de conteúdo.</div>
           </div>
           <div class="offer-row">
             <div><strong>Módulo 2:</strong> Claude Projects + Skills — 3 aulas</div>
             <div>R$ 197</div>
+            <div class="offer-justify">Substitui semanas de tentativa e erro com caminho documentado.</div>
           </div>
           <div class="offer-row">
             <div><strong>Bônus 1:</strong> Checklist Zero Erro</div>
             <div>R$ 97</div>
+            <div class="offer-justify">Economiza 5+ horas/mês de retrabalho em configuração.</div>
           </div>
           <div class="offer-row">
             <div><strong>Bônus 2:</strong> Templates de Agent Rules</div>
             <div>R$ 147</div>
+            <div class="offer-justify">30+ horas de testes condensadas em templates prontos para copiar.</div>
           </div>
           <div class="offer-row">
             <div><strong>Bônus 3:</strong> Pack de Skills Claude</div>
             <div>R$ 147</div>
+            <div class="offer-justify">Skills prontas que economizam 20+ minutos cada uso.</div>
           </div>
           <div class="offer-row">
             <div>Acesso vitalício + atualizações</div>
             <div>R$ 97</div>
+            <div class="offer-justify">Ferramentas mudam rápido. Aulas atualizadas sem custo extra.</div>
           </div>
           <div class="offer-row offer-total">
             <div>Valor Total</div>
@@ -1400,13 +1520,14 @@
           </div>
         </div>
         <div class="offer-cta">
+          <!-- TODO: inserir link do checkout aqui -->
           <a href="#" class="btn btn-primary btn-large">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
         </div>
       </div>
     </section>
 
     <!-- ===== GUARANTEE ===== -->
-    <section class="section-pad bg-white" id="guarantee">
+    <section class="section-pad bg-main" id="guarantee">
       <div class="container">
         <div class="guarantee-box">
           <svg class="shield-icon" viewBox="0 0 24 24">
@@ -1414,18 +1535,18 @@
               d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
           </svg>
           <br>
-          <div class="badge">RISCO ZERO</div>
-          <h2 class="section-title">
+          <div class="badge reveal">RISCO ZERO</div>
+          <h2 class="section-title reveal">
             <span class="line-bold">Garantia Total</span>
             <span class="italic">7 Dias Sem Perguntas</span>
           </h2>
-          <p class="subtitle">Compre. Assista. Configure. Se por qualquer motivo não estiver satisfeito — me manda uma
+          <p class="subtitle reveal">Compre. Assista. Configure. Se por qualquer motivo não estiver satisfeito — me manda uma
             mensagem em até 7 dias e devolvo 100% do valor. Sem formulário. Sem justificativa. Sem pergunta.</p>
-          <p class="subtitle">Eu não vou te pedir para provar que assistiu. Não vou te pedir para mostrar que tentou. Se
+          <p class="subtitle reveal">Eu não vou te pedir para provar que assistiu. Não vou te pedir para mostrar que tentou. Se
             não gostou, o dinheiro volta. Ponto.</p>
-          <p class="subtitle">Eu posso oferecer isso porque o conteúdo entrega o que promete. E se por algum motivo não
+          <p class="subtitle reveal">Eu posso oferecer isso porque o conteúdo entrega o que promete. E se por algum motivo não
             entregar pra você, prefiro devolver R$197 do que ter um cliente insatisfeito.</p>
-          <div class="trust-badges">
+          <div class="trust-badges reveal">
             <span>🔒 Pagamento seguro</span>
             <span>✓ Acesso imediato</span>
             <span>↩ 7 dias de garantia</span>
@@ -1435,10 +1556,10 @@
     </section>
 
     <!-- ===== WHAT HAPPENS AFTER ===== -->
-    <section class="section-pad bg-main" id="after">
+    <section class="section-pad bg-white" id="after">
       <div class="container container-narrow">
-        <div class="badge">PRÓXIMOS PASSOS</div>
-        <h2 class="section-title">
+        <div class="badge reveal">PRÓXIMOS PASSOS</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">O que acontece quando você compra</span>
         </h2>
         <ul class="check-list">
@@ -1485,36 +1606,38 @@
     </section>
 
     <!-- ===== URGENCY ===== -->
-    <section class="section-pad bg-white" id="urgency">
+    <section class="section-pad section-pad-text bg-main" id="urgency">
       <div class="container container-narrow">
-        <div class="badge">URGÊNCIA</div>
-        <h2 class="section-title">
-          <span class="line-bold">O preço sobe dia [DATA].</span>
+        <div class="badge reveal">URGÊNCIA</div>
+        <h2 class="section-title reveal">
+          <span class="line-bold">O preço sobe dia 10 de março.</span>
           <span class="italic">E o conteúdo tem prazo de validade.</span>
         </h2>
-        <p class="subtitle">O valor de lançamento é R$197. Depois de [DATA], o preço vira R$297 — permanentemente.</p>
-        <p class="subtitle">Os bônus (Checklist + Templates de Agent Rules + Pack de Skills) estão inclusos durante o
-          lançamento. Depois de [DATA], viram produtos separados.</p>
-        <p class="subtitle"><strong>Mas tem algo mais importante que o preço:</strong></p>
-        <p class="subtitle">Ferramentas de IA mudam toda semana. O Antigravity de hoje não é o de 3 meses atrás. O
+        <p class="subtitle reveal">O valor de lançamento é R$197. Depois de 10 de março, o preço vira R$297 — permanentemente.
+        </p>
+        <p class="subtitle reveal">Os bônus (Checklist + Templates de Agent Rules + Pack de Skills) estão inclusos durante o
+          lançamento. Depois de 10 de março, viram produtos separados.</p>
+        <p class="subtitle reveal"><strong>Mas tem algo mais importante que o preço:</strong></p>
+        <p class="subtitle reveal">Ferramentas de IA mudam toda semana. O Antigravity de hoje não é o de 3 meses atrás. O
           Claude de amanhã pode ser diferente do de hoje. Cada dia que você adia, o gap entre seu ambiente improvisado e
           o profissional aumenta. Quando as ferramentas mudam, quem já tem a base se adapta em minutos. Quem não tem,
           recomeça do zero.</p>
-        <p class="subtitle"><strong>Este é o tipo de conhecimento que vale mais AGORA do que em qualquer momento
+        <p class="subtitle reveal"><strong>Este é o tipo de conhecimento que vale mais AGORA do que em qualquer momento
             futuro.</strong></p>
       </div>
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="section-pad bg-main" id="testimonials">
+    <!-- TODO: substituir por depoimentos reais após primeiros alunos -->
+    <section class="section-pad bg-white" id="testimonials">
       <div class="container">
-        <div class="badge">RESULTADOS</div>
-        <h2 class="section-title">
+        <div class="badge reveal">RESULTADOS</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Quem já usou</span>
           <span class="italic">não volta atrás.</span>
         </h2>
         <div class="grid-2x2">
-          <div class="card">
+          <div class="card reveal">
             <div class="stars">★★★★★</div>
             <p class="testi-text">"Instalei o Antigravity em minutos seguindo o passo a passo. A estrutura de workspaces
               mudou a forma que minha equipe constrói as features no dia a dia."</p>
@@ -1523,7 +1646,7 @@
               <span>Desenvolvedor Fullstack</span>
             </div>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="stars">★★★★★</div>
             <p class="testi-text">"Sempre usei o Claude, mas configurar os Projects com os insights do Módulo 2 aumentou
               minha produtividade em pelo menos 3x. Não preciso ficar repetindo contexto."</p>
@@ -1532,7 +1655,7 @@
               <span>Product Manager</span>
             </div>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="stars">★★★★★</div>
             <p class="testi-text">"Não sou programadora, mas com esse treinamento consegui estruturar uma automação com
               Claude Skills que reduziu o tempo de análise de dados da minha empresa para zero."</p>
@@ -1541,7 +1664,7 @@
               <span>Empreendedora</span>
             </div>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="stars">★★★★★</div>
             <p class="testi-text">"A didática é incrível. Ele vai direto ao ponto sem enrolação. A parte sobre as Agent
               Rules foi o que explodiu minha cabeça e ajustou totalmente minhas expectativas."</p>
@@ -1557,58 +1680,58 @@
     <!-- ===== FINAL CTA ===== -->
     <section class="final-cta" id="final-cta">
       <div class="container">
-        <h2 class="section-title final-cta-title">
+        <h2 class="section-title final-cta-title reveal">
           <span class="line-bold">Uma tarde. Dois ambientes profissionais. Resultado real.</span>
         </h2>
-        <p class="subtitle subtitle-cta">Fechar essa página e voltar pro YouTube, achar
+        <p class="subtitle subtitle-cta reveal">Fechar essa página e voltar pro YouTube, achar
           outro tutorial desatualizado, perder mais uma tarde, e semana que vem estar onde está hoje. Ou clicar no botão
           abaixo, assistir duas aulas, configurar os dois ambientes, e amanhã usar Antigravity e Claude no nível que
           essas ferramentas foram construídas para operar.</p>
         <p class="final-cta-sub cta-sub-mt">Uma opção te dá a sensação de progresso. A outra te dá
           progresso real.</p>
         <a href="#offer" class="btn btn-primary btn-xl final-cta-btn">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
-        <p class="final-cta-caption">Acesso imediato · Lançamento até [DATA] · Garantia total de 7 dias</p>
+        <p class="final-cta-caption">Acesso imediato · Lançamento até 10 de março · Garantia total de 7 dias</p>
       </div>
     </section>
 
     <!-- ===== FAQ ===== -->
     <section class="section-pad bg-white" id="faq">
       <div class="container container-narrow">
-        <div class="badge">PERGUNTAS FREQUENTES</div>
-        <h2 class="section-title">
+        <div class="badge reveal">PERGUNTAS FREQUENTES</div>
+        <h2 class="section-title reveal">
           <span class="line-bold">Dúvidas?</span>
         </h2>
         <div class="check-list faq-list">
-          <div>
+          <div class="reveal">
             <p><strong>Preciso saber programar?</strong></p>
             <p class="card-text">Módulo 1 usa terminal — familiaridade básica com linha de comando é necessária. Não
               precisa ser dev sênior, mas precisa saber abrir um terminal. Módulo 2 (Claude) é para qualquer
               profissional, zero código.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>E se eu travar em algum passo?</strong></p>
             <p class="card-text">As aulas são na tela, passo a passo. O Checklist Zero Erro (Bônus 1) é um guia de
               referência rápida para cada configuração.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>As aulas são ao vivo ou gravadas?</strong></p>
             <p class="card-text">Gravadas. No seu ritmo. Pausa, volta, configura junto.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>Funciona no Windows/Mac/Linux?</strong></p>
             <p class="card-text">Sim. O Módulo 1 cobre os três.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>E se as ferramentas atualizarem?</strong></p>
             <p class="card-text">Acesso vitalício com atualizações. Se algo mudar, atualizo as aulas e você recebe sem
               custo.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>E se eu só usar uma das ferramentas?</strong></p>
             <p class="card-text">Os dois módulos vêm juntos. Mas o módulo correspondente à ferramenta que você usa já
               vale mais que o investimento total.</p>
           </div>
-          <div>
+          <div class="reveal">
             <p><strong>Posso usar para projetos de clientes?</strong></p>
             <p class="card-text">Sim. O freelancer ou agência que entrega com ambiente profissional cobra mais e entrega
               melhor. O setup é seu — use como quiser.</p>
@@ -1674,6 +1797,15 @@
           mobileMenu.classList.remove('open');
         });
       });
+
+      // Scroll Reveal Animations
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(el => observer.observe(el));
     });
   </script>
 </body>
