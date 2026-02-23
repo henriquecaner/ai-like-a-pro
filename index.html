@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Like a PRO — Antigravity + Claude. Crie dinheiro. Não dopamina.</title>
+  <meta name="description"
+    content="Aprenda a configurar o Google Antigravity e o Claude como um especialista. Dois módulos práticos. Uma tarde. Resultado real.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --color-bg-primary: #F0EEE8;
+      --color-bg-white: #FFFFFF;
+      --color-bg-cta: linear-gradient(135deg, #EEF3FB, #F5F8FF);
+      --color-text-primary: #1A1A1A;
+      --color-text-secondary: #6B6B6B;
+      --color-text-light: #9CA3AF;
+      --color-accent: #2563EB;
+      --color-accent-light: #DBEAFE;
+      --color-check: #16A34A;
+      --color-stars: #F59E0B;
+      --color-border: #E5E3DC;
+      --color-red: #EF4444;
+      --color-footer: #1A1A1A;
+      --color-terminal: #1E1E2E;
+      --dot-red: #FF5F57;
+      --dot-yellow: #FFBD2E;
+      --dot-green: #28CA41;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.3);
+      }
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .title-h1 {
+      font-size: 48px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .title-h1 .bold {
+      font-weight: 700;
+      color: var(--color-text-primary);
+      display: block;
+    }
+
+    .title-h1 .italic {
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-light);
+      display: block;
+    }
+
+    .section-title {
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .section-title .line-bold {
+      font-weight: 700;
+      display: block;
+    }
+
+    .section-title .italic {
+      font-style: italic;
+      color: var(--color-text-light);
+      display: block;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .subtitle-narrow {
+      max-width: 600px;
+    }
+
+    .hero-preheadline {
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .subtitle-cta {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-caption-mt {
+      margin-top: 16px;
+    }
+
+    .cta-sub-mt {
+      margin-top: 24px;
+    }
+
+    .footnote {
+      margin-top: 24px;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .faq-list {
+      gap: 32px;
+    }
+
+    /* ===== BADGES ===== */
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 8px 18px;
+    }
+
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-check);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: #FFF;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+      transform: translateY(-1px);
+    }
+
+    .btn-large {
+      padding: 20px 48px;
+      font-size: 18px;
+    }
+
+    .btn-xl {
+      padding: 24px 56px;
+      font-size: 18px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .container-narrow {
+      max-width: 800px;
+    }
+
+    .section-pad {
+      padding: 100px 0;
+    }
+
+    .bg-main {
+      background-color: var(--color-bg-primary);
+    }
+
+    .bg-white {
+      background-color: var(--color-bg-white);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar-wrapper {
+      position: fixed;
+      top: 16px;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      background-color: var(--color-bg-white);
+      max-width: 780px;
+      margin: 0 auto;
+      border-radius: 999px;
+      padding: 8px 12px 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .nav-btn-desktop .btn {
+      padding: 10px 24px;
+      font-size: 14px;
+    }
+
+    .nav-btn-desktop {
+      display: none;
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 20px;
+      right: 20px;
+      background: var(--color-bg-white);
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      padding: 24px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      padding: 8px 0;
+    }
+
+    .mobile-menu .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 140px 0 100px;
+      text-align: center;
+    }
+
+    .hero .subtitle {
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    .social-proof {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* ===== LOGOS STRIP ===== */
+    .logos-strip {
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .logos-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-light);
+      margin-bottom: 24px;
+    }
+
+    .logos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0.5;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--color-bg-white);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--color-border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      color: var(--color-text-secondary);
+      font-size: 15px;
+    }
+
+    /* ===== GRIDS ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    /* ===== SPLIT LAYOUT ===== */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* ===== CHECKLISTS ===== */
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .check-svg {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+    }
+
+    .check-svg.blue {
+      fill: var(--color-accent);
+    }
+
+    .check-svg.green {
+      fill: var(--color-check);
+    }
+
+    .check-svg.red {
+      fill: var(--color-red);
+    }
+
+    .not-for-list li {
+      font-size: 18px;
+    }
+
+    /* ===== TERMINAL MOCKUP ===== */
+    .mockup-terminal {
+      background: var(--color-terminal);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .mockup-header {
+      padding: 16px 20px;
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .term-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .term-dot-r {
+      background: var(--dot-red);
+    }
+
+    .term-dot-y {
+      background: var(--dot-yellow);
+    }
+
+    .term-dot-g {
+      background: var(--dot-green);
+    }
+
+    .mockup-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .code-line {
+      height: 12px;
+      border-radius: 4px;
+    }
+
+    .code-line-gray {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .code-line-blue {
+      background: rgba(37, 99, 235, 0.25);
+    }
+
+    .code-line-light {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .cursor-blink {
+      width: 8px;
+      height: 16px;
+      background: var(--color-accent);
+      border-radius: 2px;
+      animation: blink 1s steps(1) infinite;
+      margin-top: 8px;
+    }
+
+    /* ===== CLAUDE MOCKUP ===== */
+    .mockup-claude {
+      background: var(--color-bg-white);
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      display: flex;
+      height: 320px;
+    }
+
+    .claude-sidebar {
+      width: 80px;
+      background: #F8FAFC;
+      border-right: 1px solid var(--color-border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-item {
+      height: 48px;
+      border-radius: 8px;
+      background: var(--color-accent-light);
+    }
+
+    .sidebar-item:nth-child(2) {
+      background: var(--color-border);
+      opacity: 0.5;
+    }
+
+    .sidebar-item:nth-child(3) {
+      background: var(--color-border);
+      opacity: 0.5;
+    }
+
+    .claude-main {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .claude-card-mock {
+      height: 80px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .claude-card-mock .mock-line {
+      height: 8px;
+      background: var(--color-border);
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+
+
+    /* ===== OFFER TABLE ===== */
+    .offer-table {
+      background: var(--color-bg-white);
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .offer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .offer-header {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: #FAFAFA;
+    }
+
+    .offer-total {
+      background: var(--color-accent-light);
+      font-weight: 600;
+    }
+
+    .offer-strike {
+      text-decoration: line-through;
+      color: var(--color-text-secondary);
+    }
+
+    .offer-final {
+      background: var(--color-accent);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 20px;
+      border-bottom: none;
+    }
+
+    .offer-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ===== GUARANTEE ===== */
+    .guarantee-box {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .shield-icon {
+      width: 48px;
+      height: 48px;
+      fill: var(--color-accent);
+      margin-bottom: 24px;
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .stars {
+      color: var(--color-stars);
+      font-size: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testi-text {
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .testi-author strong {
+      display: block;
+      color: var(--color-text-primary);
+      font-size: 14px;
+    }
+
+    .testi-author span {
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: var(--color-bg-cta);
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .final-cta-sub {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+
+    .final-cta-title {
+      margin-bottom: 0;
+    }
+
+    .final-cta-title .italic {
+      color: var(--color-text-secondary);
+    }
+
+    .final-cta-btn {
+      margin-top: 40px;
+      margin-bottom: 24px;
+    }
+
+    .final-cta-caption {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-footer);
+      color: #FFF;
+      padding: 60px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      color: var(--color-text-light);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-copy {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent);
+      color: #FFF;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+      z-index: 50;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 768px) {
+      .title-h1 {
+        font-size: 88px;
+      }
+
+      .section-title {
+        font-size: 56px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .section-pad {
+        padding: 120px 0;
+      }
+
+      .container {
+        padding: 0 24px;
+      }
+
+      .hero {
+        padding: 180px 0 120px;
+      }
+
+      .hero-actions {
+        flex-direction: row;
+      }
+
+      .hero-actions .btn {
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-btn-desktop {
+        display: block;
+      }
+
+      .nav-hamburger {
+        display: none;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-2x2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .split-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .split-reverse .split-content {
+        order: 2;
+      }
+
+      .split-reverse .split-mockup {
+        order: 1;
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    /* Extra small mobile — ensure nothing overflows */
+    @media (max-width: 374px) {
+      .title-h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .logos-grid {
+        gap: 20px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <div class="navbar-wrapper">
+    <nav class="navbar" id="nav">
+      <div class="nav-logo">AI Like a PRO</div>
+      <div class="nav-links">
+        <a href="#module-1">Módulos</a>
+        <a href="#offer">Oferta</a>
+        <a href="#testimonials">Resultados</a>
+      </div>
+      <div class="nav-btn-desktop">
+        <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#module-1">Módulos</a>
+    <a href="#offer">Oferta</a>
+    <a href="#testimonials">Resultados</a>
+    <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="section-pad bg-main hero" id="hero">
+      <div class="container">
+        <p class="subtitle subtitle-narrow hero-preheadline">Para devs, criadores e
+          profissionais que já usam Antigravity ou Claude — mas sabem que estão tirando 20% do potencial dessas
+          ferramentas</p>
+        <div class="badge">
+          <span class="dot"></span> PRÉ-LANÇAMENTO EXCLUSIVO
+        </div>
+        <h1 class="title-h1">
+          <span class="bold">Você passa horas configurando IA — e no dia seguinte precisa configurar tudo de
+            novo.</span>
+          <span class="italic">O problema não é a ferramenta. É o setup.</span>
+        </h1>
+        <p class="subtitle">
+          Em duas aulas práticas, eu te mostro na tela como montar o Antigravity com agentes, MCPs e memória permanente
+          — e como transformar o Claude em um sistema com contexto e automação. Uma tarde. Você sai com os dois
+          funcionando.
+        </p>
+        <div class="hero-actions">
+          <a href="#offer" class="btn btn-primary">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+          <a href="#module-1" class="btn btn-secondary">Ver o que está incluso ↓</a>
+        </div>
+        <div class="social-proof">
+          ✦ +500 profissionais de IA já garantiram
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOGOS STRIP ===== -->
+    <section class="logos-strip bg-white" id="logos">
+      <div class="container">
+        <div class="logos-label">USED BY PROFESSIONALS AT</div>
+        <div class="logos-grid">
+          <span>Nubank</span>
+          <span>iFood</span>
+          <span>Itaú</span>
+          <span>Totvs</span>
+          <span>Stone</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEM (DOR) ===== -->
+    <section class="section-pad bg-main" id="problem">
+      <div class="container container-narrow">
+        <div class="badge">O PROBLEMA</div>
+        <h2 class="section-title">
+          <span class="line-bold">Você está usando as ferramentas certas do jeito errado.</span>
+          <span class="italic">E isso está te custando horas todo dia.</span>
+        </h2>
+        <p class="subtitle">Você baixou o Antigravity, abriu, tentou configurar. Apareceu erro de terminal. Você
+          pesquisou, achou um tutorial desatualizado de 3 meses atrás que já não funciona. Aplicou metade, quebrou outra
+          coisa. Três horas depois, seu "setup" funciona mais ou menos — e você comemora como se tivesse conquistado
+          algo.</p>
+        <p class="subtitle">Não conquistou. Você improvisou. E ambiente improvisado é o inimigo silencioso da sua
+          produtividade.</p>
+        <p class="subtitle">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto inteiro do
+          seu projeto de novo, dá as mesmas instruções que deu ontem, recebe uma resposta genérica, ajusta, pede de
+          novo, e 40 minutos depois tem algo "ok." Amanhã, tudo isso reseta. Contexto zero. Memória zero. Você está
+          pagando a assinatura mais cara do mercado para usar um chatbot sem memória.</p>
+        <p class="subtitle"><strong>Agora faça a conta que ninguém faz:</strong></p>
+        <p class="subtitle">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são 30
+          horas por mês. A R$50/hora, são R$1.500 por mês evaporando. Em 3 meses, R$4.500. Em um ano, R$18.000.</p>
+        <p class="subtitle">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de uso com
+          o tempo que para de desperdiçar.</p>
+        <p class="subtitle"><strong>A ferramenta não é o problema. A configuração improvisada é.</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== ENEMY (INIMIGO) ===== -->
+    <section class="section-pad bg-white" id="enemy">
+      <div class="container container-narrow">
+        <div class="badge">O INIMIGO</div>
+        <h2 class="section-title">
+          <span class="line-bold">Dopamina de setup</span>
+          <span class="italic">não paga boleto.</span>
+        </h2>
+        <p class="subtitle">Você conhece esse ciclo: instala ferramenta nova → passa a tarde configurando → roda um
+          teste → funciona "mais ou menos" → posta no Twitter → recebe likes → sente que avançou.</p>
+        <p class="subtitle">Na semana seguinte, está na mesma.</p>
+        <p class="subtitle">Isso é dopamina de produtividade. A sensação de que você está avançando — sem avançar de
+          verdade.</p>
+        <p class="subtitle">Quem avança é quem tem um ambiente configurado tão bem que para de pensar nele. Os agentes
+          executam. O Claude lembra do contexto. E a pessoa foca no que realmente importa: criar produtos, entregar
+          projetos, fechar clientes, gerar receita.</p>
+        <p class="subtitle"><strong>A diferença entre os dois? Uma tarde de configuração profissional.</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== CTA 1 ===== -->
+    <section class="section-pad bg-main text-center" id="cta1">
+      <div class="container">
+        <a href="#offer" class="btn btn-primary btn-xl">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+        <p class="final-cta-caption cta-caption-mt">Acesso imediato · Preço de lançamento até [DATA]</p>
+      </div>
+    </section>
+
+    <!-- ===== AUTHORITY (AUTORIDADE) ===== -->
+    <section class="section-pad bg-white" id="authority">
+      <div class="container container-narrow">
+        <div class="badge">QUEM ENSINA</div>
+        <h2 class="section-title">
+          <span class="line-bold">Quem te ensina</span>
+          <span class="italic">e por que isso funciona</span>
+        </h2>
+        <p class="subtitle">Eu sou [SEU NOME]. Nos últimos [X meses], configurei [X] ambientes de IA do zero — para
+          projetos meus e para [clientes/projetos reais]. Quebrei mais configurações do que gostaria de admitir. Mas
+          cada erro virou um passo documentado que evita que você cometa o mesmo.</p>
+        <p class="subtitle"><strong>Algumas coisas que aprendi no caminho:</strong></p>
+        <p class="subtitle">A maioria dos erros no Antigravity acontece nos primeiros 5 minutos de instalação — em
+          configurações que ninguém menciona. Agent Rules mal escritas são responsáveis por 80% das alucinações que as
+          pessoas reclamam. A estrutura Brain resolve o problema de contexto limitado de forma permanente — e quase
+          ninguém sabe que ela existe. E 99% das pessoas usam o Claude como chatbot, quando Projects + Skills
+          transformam ele em sistema de produção.</p>
+        <p class="subtitle">Essas descobertas levaram semanas. O AI Like a PRO condensa tudo em duas aulas práticas. Eu
+          abro minha tela e você monta junto. Sem slides. Sem teoria. Sem módulo de mindset.</p>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 1 ===== -->
+    <section class="section-pad bg-main" id="module-1">
+      <div class="container split-layout">
+        <div class="split-content">
+          <div class="badge">MÓDULO 01</div>
+          <h2 class="section-title">
+            <span class="line-bold">Google Antigravity: do Zero ao Avançado</span>
+            <span class="italic">8 aulas práticas. Tela aberta. Resultado no final.</span>
+          </h2>
+          <ul class="check-list">
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 1 — Instalação Sem Erro:</strong> Instalação correta no Windows, Mac e Linux. As
+                configurações que 80% das pessoas ignora nos primeiros 5 minutos — e que causam os erros mais comuns
+                depois. <em>Você sai com: Antigravity instalado e rodando sem erros.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 2 — Workspace Profissional:</strong> A diferença entre um workspace que trava na
+                terceira tarefa e um que escala sem fricção. <em>Você sai com: Workspace limpo e organizado, pronto para
+                  receber agentes.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 3 — GitHub Integrado:</strong> Integração com repositórios reais. Seus agentes leem,
+                escrevem e versionam código no seu fluxo — sem gerenciamento manual. <em>Você sai com: Repositório
+                  conectado. Versionamento automático funcionando.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 4 — Agent Rules que Funcionam:</strong> Como escrever regras precisas que eliminam
+                alucinações e desvio de escopo. <em>Você sai com: Template de Agent Rules testado, aplicado e
+                  rodando.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 5 — Múltiplos Agentes em Harmonia:</strong> Arquitetura para múltiplos agentes no mesmo
+                projeto sem conflito. <em>Você sai com: 2+ agentes com função clara, trabalhando juntos.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 6 — MCPs (Superpoderes dos Agentes):</strong> O que são MCPs, por que expandem
+                radicalmente o que seus agentes fazem, e como conectar os mais úteis. <em>Você sai com: MCPs instalados.
+                  Seus agentes fazem coisas que antes eram impossíveis.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 7 — Estrutura Brain (Memória Permanente):</strong> Como montar a estrutura Brain para
+                memória permanente. O conceito que ninguém está ensinando. <em>Você sai com: Brain configurado. Seus
+                  agentes lembram de tudo — permanentemente.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg blue" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 8 — Build Completo ao Vivo:</strong> Projeto real construído do zero com workspace +
+                agentes + MCPs + Brain funcionando. <em>Você sai com: Um projeto completo rodando de ponta a ponta.</em>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-mockup">
+          <div class="mockup-terminal">
+            <div class="mockup-header">
+              <div class="term-dot term-dot-r"></div>
+              <div class="term-dot term-dot-y"></div>
+              <div class="term-dot term-dot-g"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="code-line code-line-blue" style="width: 40%"></div>
+              <div class="code-line code-line-gray" style="width: 75%"></div>
+              <div class="code-line code-line-light" style="width: 55%"></div>
+              <div class="code-line code-line-gray" style="width: 88%"></div>
+              <div class="code-line code-line-blue" style="width: 30%; margin-top: 8px"></div>
+              <div class="code-line code-line-light" style="width: 65%"></div>
+              <div class="code-line code-line-gray" style="width: 50%"></div>
+              <div class="code-line code-line-blue" style="width: 92%"></div>
+              <div class="cursor-blink"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 2 ===== -->
+    <section class="section-pad bg-white" id="module-2">
+      <div class="container split-layout split-reverse">
+        <div class="split-content">
+          <div class="badge">MÓDULO 02</div>
+          <h2 class="section-title">
+            <span class="line-bold">Claude: O Sistema que Trabalha por Você</span>
+            <span class="italic">3 aulas práticas. O Claude nunca mais vai ser "só um chatbot."</span>
+          </h2>
+          <ul class="check-list">
+            <li>
+              <svg class="check-svg green" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 1 — Projetos com Contexto Permanente:</strong> Como criar um Projeto com contexto
+                persistente, instruções customizadas e arquivos de referência. <em>Você sai com: Projeto configurado. O
+                  Claude lembra, segue instruções, entrega com consistência — toda vez.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg green" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 2 — Skills Automatizadas:</strong> Como construir Skills que o Claude executa
+                automaticamente, sem repetição. 99% dos usuários não sabe que existe. <em>Você sai com: Skills rodando.
+                  O Claude executa tarefas repetitivas sem você pedir de novo.</em></div>
+            </li>
+            <li>
+              <svg class="check-svg green" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div><strong>Aula 3 — Build Completo ao Vivo:</strong> Projeto completo montado na sua frente com contexto
+                + Skills + resultado real. <em>Você sai com: Seu primeiro Projeto profissional pronto no mesmo dia.</em>
+              </div>
+            </li>
+          </ul>
+          <p class="subtitle footnote">3 aulas porque o Claude bem
+            configurado é simples. O poder está no setup certo, não em 40 horas de vídeo.</p>
+        </div>
+        <div class="split-mockup">
+          <div class="mockup-claude">
+            <div class="claude-sidebar">
+              <div class="sidebar-item"></div>
+              <div class="sidebar-item"></div>
+              <div class="sidebar-item"></div>
+            </div>
+            <div class="claude-main">
+              <div class="claude-card-mock">
+                <div class="mock-line" style="width: 40%"></div>
+                <div class="mock-line" style="width: 80%"></div>
+              </div>
+              <div class="claude-card-mock">
+                <div class="mock-line" style="width: 60%"></div>
+                <div class="mock-line" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOR WHO ===== -->
+    <section class="section-pad bg-main" id="for-who">
+      <div class="container">
+        <div class="badge">PARA QUEM É</div>
+        <h2 class="section-title">
+          <span class="line-bold">Feito pra você se:</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <h3 class="card-title">Dev</h3>
+            <p class="card-text">Você quer pular semanas de tentativa e erro — ir direto pra configuração que funciona e
+              focar em criar, não em configurar.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏢</div>
+            <h3 class="card-title">Freelancer / Agência</h3>
+            <p class="card-text">Você quer entregar projetos com IA no nível profissional — e cobrar de acordo. Setup
+              amador entrega resultado amador. Setup profissional entrega resultado que o cliente paga mais.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">Criador / Empreendedor</h3>
+            <p class="card-text">Você quer que o Claude trabalhe como sistema de produção — gerando resultado
+              consistente, não respostas aleatórias.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3 class="card-title">Usuário Atual</h3>
+            <p class="card-text">Você já usa Antigravity ou Claude mas sabe que está na superfície — e que está perdendo
+              tempo (e dinheiro) por causa disso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NOT FOR WHO ===== -->
+    <section class="section-pad bg-white" id="not-for-who">
+      <div class="container container-narrow">
+        <h2 class="section-title">
+          <span class="line-bold">Não é pra você se:</span>
+        </h2>
+        <ul class="check-list not-for-list">
+          <li>
+            <svg class="check-svg red" viewBox="0 0 24 24">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+            <span>Você quer curso de 40 horas com certificado. Isso aqui são duas sessões práticas com resultado no
+              final.</span>
+          </li>
+          <li>
+            <svg class="check-svg red" viewBox="0 0 24 24">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+            <span>Você nunca ouviu falar de Antigravity ou Claude. Este material é para quem já conhece as ferramentas e
+              quer o nível profissional.</span>
+          </li>
+          <li>
+            <svg class="check-svg red" viewBox="0 0 24 24">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+            <span>Você quer explorar sem se comprometer a configurar. Aqui você assiste e monta junto. Se não vai abrir
+              o terminal, não compre. E tudo bem.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== OFFER ===== -->
+    <section class="section-pad bg-main" id="offer">
+      <div class="container container-narrow">
+        <div class="badge">A OFERTA</div>
+        <h2 class="section-title">
+          <span class="line-bold">O que está incluso</span>
+        </h2>
+        <div class="offer-table">
+          <div class="offer-row offer-header">
+            <div>O QUE ESTÁ INCLUSO</div>
+            <div>VALOR</div>
+          </div>
+          <div class="offer-row">
+            <div><strong>Módulo 1:</strong> Antigravity do Zero ao Avançado — 8 aulas</div>
+            <div>R$ 297</div>
+          </div>
+          <div class="offer-row">
+            <div><strong>Módulo 2:</strong> Claude Projects + Skills — 3 aulas</div>
+            <div>R$ 197</div>
+          </div>
+          <div class="offer-row">
+            <div><strong>Bônus 1:</strong> Checklist Zero Erro</div>
+            <div>R$ 97</div>
+          </div>
+          <div class="offer-row">
+            <div><strong>Bônus 2:</strong> Templates de Agent Rules</div>
+            <div>R$ 147</div>
+          </div>
+          <div class="offer-row">
+            <div><strong>Bônus 3:</strong> Pack de Skills Claude</div>
+            <div>R$ 147</div>
+          </div>
+          <div class="offer-row">
+            <div>Acesso vitalício + atualizações</div>
+            <div>R$ 97</div>
+          </div>
+          <div class="offer-row offer-total">
+            <div>Valor Total</div>
+            <div class="offer-strike">R$ 982</div>
+          </div>
+          <div class="offer-row offer-final">
+            <div>SEU INVESTIMENTO (lançamento)</div>
+            <div>R$ 197</div>
+          </div>
+        </div>
+        <div class="offer-cta">
+          <a href="#" class="btn btn-primary btn-large">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GUARANTEE ===== -->
+    <section class="section-pad bg-white" id="guarantee">
+      <div class="container">
+        <div class="guarantee-box">
+          <svg class="shield-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+          </svg>
+          <br>
+          <div class="badge">RISCO ZERO</div>
+          <h2 class="section-title">
+            <span class="line-bold">Garantia Total</span>
+            <span class="italic">7 Dias Sem Perguntas</span>
+          </h2>
+          <p class="subtitle">Compre. Assista. Configure. Se por qualquer motivo não estiver satisfeito — me manda uma
+            mensagem em até 7 dias e devolvo 100% do valor. Sem formulário. Sem justificativa. Sem pergunta.</p>
+          <p class="subtitle">Eu não vou te pedir para provar que assistiu. Não vou te pedir para mostrar que tentou. Se
+            não gostou, o dinheiro volta. Ponto.</p>
+          <p class="subtitle">Eu posso oferecer isso porque o conteúdo entrega o que promete. E se por algum motivo não
+            entregar pra você, prefiro devolver R$197 do que ter um cliente insatisfeito.</p>
+          <div class="trust-badges">
+            <span>🔒 Pagamento seguro</span>
+            <span>✓ Acesso imediato</span>
+            <span>↩ 7 dias de garantia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT HAPPENS AFTER ===== -->
+    <section class="section-pad bg-main" id="after">
+      <div class="container container-narrow">
+        <div class="badge">PRÓXIMOS PASSOS</div>
+        <h2 class="section-title">
+          <span class="line-bold">O que acontece quando você compra</span>
+        </h2>
+        <ul class="check-list">
+          <li>
+            <svg class="check-svg blue" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div><strong>1. Clique no botão →</strong> Checkout seguro. Pix, cartão ou boleto.</div>
+          </li>
+          <li>
+            <svg class="check-svg blue" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div><strong>2. Acesso imediato →</strong> Login e acesso às duas aulas no mesmo minuto.</div>
+          </li>
+          <li>
+            <svg class="check-svg blue" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div><strong>3. Assista e configure junto →</strong> Antigravity e Claude do seu lado. Cada passo mostrado
+              na tela.</div>
+          </li>
+          <li>
+            <svg class="check-svg blue" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div><strong>4. Em uma tarde, os dois ambientes prontos →</strong> Workspace, agentes, Brain, Projetos,
+              Skills. Tudo rodando.</div>
+          </li>
+          <li>
+            <svg class="check-svg blue" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div><strong>5. Amanhã, use no nível profissional →</strong> Sem reconfigurar. Sem recomeçar. Sem
+              improvisar.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== URGENCY ===== -->
+    <section class="section-pad bg-white" id="urgency">
+      <div class="container container-narrow">
+        <div class="badge">URGÊNCIA</div>
+        <h2 class="section-title">
+          <span class="line-bold">O preço sobe dia [DATA].</span>
+          <span class="italic">E o conteúdo tem prazo de validade.</span>
+        </h2>
+        <p class="subtitle">O valor de lançamento é R$197. Depois de [DATA], o preço vira R$297 — permanentemente.</p>
+        <p class="subtitle">Os bônus (Checklist + Templates de Agent Rules + Pack de Skills) estão inclusos durante o
+          lançamento. Depois de [DATA], viram produtos separados.</p>
+        <p class="subtitle"><strong>Mas tem algo mais importante que o preço:</strong></p>
+        <p class="subtitle">Ferramentas de IA mudam toda semana. O Antigravity de hoje não é o de 3 meses atrás. O
+          Claude de amanhã pode ser diferente do de hoje. Cada dia que você adia, o gap entre seu ambiente improvisado e
+          o profissional aumenta. Quando as ferramentas mudam, quem já tem a base se adapta em minutos. Quem não tem,
+          recomeça do zero.</p>
+        <p class="subtitle"><strong>Este é o tipo de conhecimento que vale mais AGORA do que em qualquer momento
+            futuro.</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section-pad bg-main" id="testimonials">
+      <div class="container">
+        <div class="badge">RESULTADOS</div>
+        <h2 class="section-title">
+          <span class="line-bold">Quem já usou</span>
+          <span class="italic">não volta atrás.</span>
+        </h2>
+        <div class="grid-2x2">
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"Instalei o Antigravity em minutos seguindo o passo a passo. A estrutura de workspaces
+              mudou a forma que minha equipe constrói as features no dia a dia."</p>
+            <div class="testi-author">
+              <strong>Marcos Vinicius</strong>
+              <span>Desenvolvedor Fullstack</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"Sempre usei o Claude, mas configurar os Projects com os insights do Módulo 2 aumentou
+              minha produtividade em pelo menos 3x. Não preciso ficar repetindo contexto."</p>
+            <div class="testi-author">
+              <strong>Carla Ribeiro</strong>
+              <span>Product Manager</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"Não sou programadora, mas com esse treinamento consegui estruturar uma automação com
+              Claude Skills que reduziu o tempo de análise de dados da minha empresa para zero."</p>
+            <div class="testi-author">
+              <strong>Amanda Costa</strong>
+              <span>Empreendedora</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"A didática é incrível. Ele vai direto ao ponto sem enrolação. A parte sobre as Agent
+              Rules foi o que explodiu minha cabeça e ajustou totalmente minhas expectativas."</p>
+            <div class="testi-author">
+              <strong>Roberto Almeida</strong>
+              <span>Tech Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta" id="final-cta">
+      <div class="container">
+        <h2 class="section-title final-cta-title">
+          <span class="line-bold">Uma tarde. Dois ambientes profissionais. Resultado real.</span>
+        </h2>
+        <p class="subtitle subtitle-cta">Fechar essa página e voltar pro YouTube, achar
+          outro tutorial desatualizado, perder mais uma tarde, e semana que vem estar onde está hoje. Ou clicar no botão
+          abaixo, assistir duas aulas, configurar os dois ambientes, e amanhã usar Antigravity e Claude no nível que
+          essas ferramentas foram construídas para operar.</p>
+        <p class="final-cta-sub cta-sub-mt">Uma opção te dá a sensação de progresso. A outra te dá
+          progresso real.</p>
+        <a href="#offer" class="btn btn-primary btn-xl final-cta-btn">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+        <p class="final-cta-caption">Acesso imediato · Lançamento até [DATA] · Garantia total de 7 dias</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section-pad bg-white" id="faq">
+      <div class="container container-narrow">
+        <div class="badge">PERGUNTAS FREQUENTES</div>
+        <h2 class="section-title">
+          <span class="line-bold">Dúvidas?</span>
+        </h2>
+        <div class="check-list faq-list">
+          <div>
+            <p><strong>Preciso saber programar?</strong></p>
+            <p class="card-text">Módulo 1 usa terminal — familiaridade básica com linha de comando é necessária. Não
+              precisa ser dev sênior, mas precisa saber abrir um terminal. Módulo 2 (Claude) é para qualquer
+              profissional, zero código.</p>
+          </div>
+          <div>
+            <p><strong>E se eu travar em algum passo?</strong></p>
+            <p class="card-text">As aulas são na tela, passo a passo. O Checklist Zero Erro (Bônus 1) é um guia de
+              referência rápida para cada configuração.</p>
+          </div>
+          <div>
+            <p><strong>As aulas são ao vivo ou gravadas?</strong></p>
+            <p class="card-text">Gravadas. No seu ritmo. Pausa, volta, configura junto.</p>
+          </div>
+          <div>
+            <p><strong>Funciona no Windows/Mac/Linux?</strong></p>
+            <p class="card-text">Sim. O Módulo 1 cobre os três.</p>
+          </div>
+          <div>
+            <p><strong>E se as ferramentas atualizarem?</strong></p>
+            <p class="card-text">Acesso vitalício com atualizações. Se algo mudar, atualizo as aulas e você recebe sem
+              custo.</p>
+          </div>
+          <div>
+            <p><strong>E se eu só usar uma das ferramentas?</strong></p>
+            <p class="card-text">Os dois módulos vêm juntos. Mas o módulo correspondente à ferramenta que você usa já
+              vale mais que o investimento total.</p>
+          </div>
+          <div>
+            <p><strong>Posso usar para projetos de clientes?</strong></p>
+            <p class="card-text">Sim. O freelancer ou agência que entrega com ambiente profissional cobra mais e entrega
+              melhor. O setup é seu — use como quiser.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-logo">AI Like a PRO</div>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+      <div class="footer-copy">© 2026 AI Like a PRO. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">⬆</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.getElementById('nav');
+      const backToTop = document.getElementById('backToTop');
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      // Navbar scroll shadow + back-to-top visibility
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        if (window.scrollY > 400) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      // Back to top
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Hamburger menu
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
