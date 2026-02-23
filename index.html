@@ -94,23 +94,25 @@
 
     /* ===== TYPOGRAPHY ===== */
     .title-h1 {
-      font-size: 2.375rem;
+      font-size: 5rem;
       line-height: 1.15;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.5rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 2rem;
+      color: #333333;
     }
 
     .title-h1 .bold {
-      font-weight: 700;
-      color: var(--color-text-primary);
+      font-weight: 400;
+      color: inherit;
       display: block;
     }
 
     .title-h1 .italic {
       font-weight: 300;
       font-style: italic;
-      color: var(--color-text-light);
+      color: #6B7280;
       display: block;
+      margin-top: 0.5rem;
     }
 
     .section-title {
@@ -405,7 +407,7 @@
 
     /* ===== HERO ===== */
     .hero {
-      padding: 8.75rem 0 6.25rem;
+      padding: 12.5rem 0 6.25rem;
       text-align: center;
     }
 
@@ -939,7 +941,7 @@
     /* ===== RESPONSIVE ===== */
     @media (min-width: 768px) {
       .title-h1 {
-        font-size: 4.5rem;
+        font-size: 5.5rem;
       }
 
       .section-title {
@@ -1083,17 +1085,21 @@
     <!-- ===== HERO ===== -->
     <section class="section-pad bg-main hero" id="hero">
       <div class="container">
-        <p class="subtitle subtitle-narrow hero-preheadline reveal">Para devs, criadores e
-          profissionais que já usam Antigravity ou Claude — mas sabem que estão tirando 20% do potencial dessas
-          ferramentas</p>
+
         <div class="badge reveal">
           <span class="dot"></span> PRÉ-LANÇAMENTO EXCLUSIVO
         </div>
+
         <h1 class="title-h1 reveal">
           <span class="bold">Você passa horas configurando IA — e no dia seguinte precisa configurar tudo de
             novo.</span>
           <span class="italic">O problema não é a ferramenta. É o setup.</span>
         </h1>
+
+        <p class="subtitle subtitle-narrow hero-preheadline reveal">Para devs, criadores e
+          profissionais que já usam Antigravity ou Claude — mas sabem que estão tirando 20% do potencial dessas
+          ferramentas</p>
+
         <p class="subtitle reveal">
           Em duas aulas práticas, eu te mostro na tela como montar o Antigravity com agentes, MCPs e memória permanente
           — e como transformar o Claude em um sistema com contexto e automação. Uma tarde. Você sai com os dois
@@ -1137,14 +1143,17 @@
           algo.</p>
         <p class="subtitle reveal">Não conquistou. Você improvisou. E ambiente improvisado é o inimigo silencioso da sua
           produtividade.</p>
-        <p class="subtitle reveal">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto inteiro do
+        <p class="subtitle reveal">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto
+          inteiro do
           seu projeto de novo, dá as mesmas instruções que deu ontem, recebe uma resposta genérica, ajusta, pede de
           novo, e 40 minutos depois tem algo "ok." Amanhã, tudo isso reseta. Contexto zero. Memória zero. Você está
           pagando a assinatura mais cara do mercado para usar um chatbot sem memória.</p>
         <p class="subtitle reveal"><strong>Agora faça a conta que ninguém faz:</strong></p>
-        <p class="subtitle reveal">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são 30
+        <p class="subtitle reveal">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são
+          30
           horas por mês. A R$50/hora, são R$1.500 por mês evaporando. Em 3 meses, R$4.500. Em um ano, R$18.000.</p>
-        <p class="subtitle reveal">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de uso com
+        <p class="subtitle reveal">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de
+          uso com
           o tempo que para de desperdiçar.</p>
         <p class="subtitle reveal"><strong>A ferramenta não é o problema. A configuração improvisada é.</strong></p>
       </div>
@@ -1158,15 +1167,19 @@
           <span class="line-bold">Dopamina de setup</span>
           <span class="italic">não paga boleto.</span>
         </h2>
-        <p class="subtitle reveal">Você conhece esse ciclo: instala ferramenta nova → passa a tarde configurando → roda um
+        <p class="subtitle reveal">Você conhece esse ciclo: instala ferramenta nova → passa a tarde configurando → roda
+          um
           teste → funciona "mais ou menos" → posta no Twitter → recebe likes → sente que avançou.</p>
         <p class="subtitle reveal">Na semana seguinte, está na mesma.</p>
-        <p class="subtitle reveal">Isso é dopamina de produtividade. A sensação de que você está avançando — sem avançar de
+        <p class="subtitle reveal">Isso é dopamina de produtividade. A sensação de que você está avançando — sem avançar
+          de
           verdade.</p>
-        <p class="subtitle reveal">Quem avança é quem tem um ambiente configurado tão bem que para de pensar nele. Os agentes
+        <p class="subtitle reveal">Quem avança é quem tem um ambiente configurado tão bem que para de pensar nele. Os
+          agentes
           executam. O Claude lembra do contexto. E a pessoa foca no que realmente importa: criar produtos, entregar
           projetos, fechar clientes, gerar receita.</p>
-        <p class="subtitle reveal"><strong>A diferença entre os dois? Uma tarde de configuração profissional.</strong></p>
+        <p class="subtitle reveal"><strong>A diferença entre os dois? Uma tarde de configuração profissional.</strong>
+        </p>
       </div>
     </section>
 
@@ -1191,12 +1204,14 @@
           de admitir. Mas
           cada erro virou um passo documentado que evita que você cometa o mesmo.</p>
         <p class="subtitle reveal"><strong>Algumas coisas que aprendi no caminho:</strong></p>
-        <p class="subtitle reveal">A maioria dos erros no Antigravity acontece nos primeiros 5 minutos de instalação — em
+        <p class="subtitle reveal">A maioria dos erros no Antigravity acontece nos primeiros 5 minutos de instalação —
+          em
           configurações que ninguém menciona. Agent Rules mal escritas são responsáveis por 80% das alucinações que as
           pessoas reclamam. A estrutura Brain resolve o problema de contexto limitado de forma permanente — e quase
           ninguém sabe que ela existe. E 99% das pessoas usam o Claude como chatbot, quando Projects + Skills
           transformam ele em sistema de produção.</p>
-        <p class="subtitle reveal">Essas descobertas levaram semanas. O AI Like a PRO condensa tudo em duas aulas práticas. Eu
+        <p class="subtitle reveal">Essas descobertas levaram semanas. O AI Like a PRO condensa tudo em duas aulas
+          práticas. Eu
           abro minha tela e você monta junto. Sem slides. Sem teoria. Sem módulo de mindset.</p>
       </div>
     </section>
@@ -1540,11 +1555,14 @@
             <span class="line-bold">Garantia Total</span>
             <span class="italic">7 Dias Sem Perguntas</span>
           </h2>
-          <p class="subtitle reveal">Compre. Assista. Configure. Se por qualquer motivo não estiver satisfeito — me manda uma
+          <p class="subtitle reveal">Compre. Assista. Configure. Se por qualquer motivo não estiver satisfeito — me
+            manda uma
             mensagem em até 7 dias e devolvo 100% do valor. Sem formulário. Sem justificativa. Sem pergunta.</p>
-          <p class="subtitle reveal">Eu não vou te pedir para provar que assistiu. Não vou te pedir para mostrar que tentou. Se
+          <p class="subtitle reveal">Eu não vou te pedir para provar que assistiu. Não vou te pedir para mostrar que
+            tentou. Se
             não gostou, o dinheiro volta. Ponto.</p>
-          <p class="subtitle reveal">Eu posso oferecer isso porque o conteúdo entrega o que promete. E se por algum motivo não
+          <p class="subtitle reveal">Eu posso oferecer isso porque o conteúdo entrega o que promete. E se por algum
+            motivo não
             entregar pra você, prefiro devolver R$197 do que ter um cliente insatisfeito.</p>
           <div class="trust-badges reveal">
             <span>🔒 Pagamento seguro</span>
@@ -1613,12 +1631,15 @@
           <span class="line-bold">O preço sobe dia 10 de março.</span>
           <span class="italic">E o conteúdo tem prazo de validade.</span>
         </h2>
-        <p class="subtitle reveal">O valor de lançamento é R$197. Depois de 10 de março, o preço vira R$297 — permanentemente.
+        <p class="subtitle reveal">O valor de lançamento é R$197. Depois de 10 de março, o preço vira R$297 —
+          permanentemente.
         </p>
-        <p class="subtitle reveal">Os bônus (Checklist + Templates de Agent Rules + Pack de Skills) estão inclusos durante o
+        <p class="subtitle reveal">Os bônus (Checklist + Templates de Agent Rules + Pack de Skills) estão inclusos
+          durante o
           lançamento. Depois de 10 de março, viram produtos separados.</p>
         <p class="subtitle reveal"><strong>Mas tem algo mais importante que o preço:</strong></p>
-        <p class="subtitle reveal">Ferramentas de IA mudam toda semana. O Antigravity de hoje não é o de 3 meses atrás. O
+        <p class="subtitle reveal">Ferramentas de IA mudam toda semana. O Antigravity de hoje não é o de 3 meses atrás.
+          O
           Claude de amanhã pode ser diferente do de hoje. Cada dia que você adia, o gap entre seu ambiente improvisado e
           o profissional aumenta. Quando as ferramentas mudam, quem já tem a base se adapta em minutos. Quem não tem,
           recomeça do zero.</p>
