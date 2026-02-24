@@ -28,12 +28,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
-      --font-serif: 'Playfair Display', serif;
+      --font-serif: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --color-bg-primary: #F6F5F0;
       --color-bg-white: #FFFFFF;
       --color-bg-cta: #111111;
@@ -68,7 +68,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-feature-settings: 'cv01', 'cv02';
       background-color: var(--color-bg-primary);
       color: var(--color-text-primary);
@@ -279,7 +279,7 @@
       border-radius: 9999px;
       font-weight: 600;
       font-size: 1rem;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
       text-align: center;
@@ -287,12 +287,13 @@
     }
 
     .btn-primary {
-      background: var(--color-accent);
+      background: #2563EB;
       color: #FFF;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .btn-primary:hover {
+      background: #1D4ED8;
       opacity: 0.9;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -895,7 +896,7 @@
     }
 
     .offer-final .offer-price {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 2.75rem;
       font-weight: 400;
       line-height: 1;
@@ -1042,7 +1043,7 @@
     }
 
     .faq-item summary strong {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 1.35rem;
       font-weight: 500;
       color: var(--color-text-primary);
@@ -1637,7 +1638,7 @@
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav-btn-desktop">
-        <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
+        <a href="#offer" class="btn btn-primary">Entrar na Primeira Turma →</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span>
@@ -1650,7 +1651,7 @@
     <a href="#module-1">Módulos</a>
     <a href="#offer">Oferta</a>
     <a href="#faq">FAQ</a>
-    <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
+    <a href="#offer" class="btn btn-primary">Entrar na Primeira Turma →</a>
   </div>
 
   <main>
@@ -1663,14 +1664,14 @@
           <span class="dot"></span> PRÉ-LANÇAMENTO EXCLUSIVO
         </div>
 
+        <p class="subtitle subtitle-narrow hero-preheadline reveal" style="margin-bottom: 0.5rem; color: var(--color-text-secondary);">Para devs, criadores e profissionais que já usam Antigravity ou Claude — mas sabem que estão tirando 20% do potencial dessas ferramentas</p>
+
         <h1 class="title-h1 reveal">
           <span class="bold">Você passa horas criando com IA. Mas sempre quebra e para de funcionar.</span>
           <span class="italic">O problema é o setup.</span>
         </h1>
 
-        <p class="subtitle subtitle-narrow hero-preheadline reveal">Para Vibe Coders, e Profissionais que estão falhando
-          em usar o Antigravity ou Claude. De forma pratica, eu te mostro como montar o Antigravity e Claude com
-          agentes, MCPs, memória permanente com contexto e automação.</p>
+        <p class="subtitle subtitle-narrow reveal">Em duas aulas práticas, eu te mostro na tela como montar o Antigravity com agentes, MCPs e memória permanente — e como transformar o Claude em um sistema com contexto e automação. Uma tarde. Você sai com os dois funcionando.</p>
         <div class="hero-actions">
           <a href="#offer" class="btn btn-primary">CONFIGURAR LIKE A PRO por R$197</a>
           <a href="#module-1" class="btn btn-secondary">Ver o que está incluso ↓</a>
@@ -1685,7 +1686,7 @@
               style="background: var(--color-accent-light); background-image: none; font-size: 0.625rem; color: var(--color-text-secondary);">
               +</div>
           </div>
-          ✦ +500 profissionais de IA já garantiram
+          ✦ Primeira turma — acesso direto ao criador durante o lançamento
         </div>
       </div>
     </section>
@@ -1693,31 +1694,20 @@
 
 
     <!-- ===== PROBLEM (DOR) ===== -->
-    <section class="section-pad section-pad-text dark-section" id="problem">
+    <section class="section-pad section-pad-text bg-main" id="problem" style="color: #111111;">
       <div class="container container-narrow">
         <div class="badge reveal">O PROBLEMA</div>
-        <h2 class="section-title reveal">
-          <span class="line-bold">Ferramentas certas. Jeito errado.</span>
-          <span class="italic">E a conta chega todo dia no final da tarde.</span>
+        <h2 class="section-title reveal" style="color: #111111;">
+          <span class="line-bold">Você está usando as ferramentas certas do jeito errado.</span>
+          <span class="italic">E isso está te custando horas todo dia.</span>
         </h2>
-        <p class="subtitle reveal">A rotina é clássica: você baixa o Antigravity, tenta configurar e já trava num erro
-          obscuro de terminal. Caça no YouTube um tutorial de três meses atrás (que, óbvio, não funciona mais). Resolve
-          metade da instalação e quebra a outra. Três horas depois, a IA "tá rodando", e você vai dormir com aquele
-          sentimento vazio de dever cumprido.</p>
-        <p class="subtitle reveal">Só que não cumpriu. Você engatilhou uma gambiarra. E improviso na sua máquina de
-          trabalho custa muito caro.</p>
-        <p class="subtitle reveal">Com o Claude é ainda pior. Você abre um chat limpo, cola aquele megazord de contexto
-          sobre o projeto, joga o mesmo prompt de ontem. Ele responde quebrando a UI. Você tenta alinhar, manda de novo,
-          e 40 minutos depois arranca um código "ok". No dia seguinte, ele tem amnésia. Zero contexto. Zero memória.
-          Basicamente você pagando $20/mês na assinatura mais cara do mercado pra usar o bot como estagiário júnior com
-          déficit de atenção.</p>
-        <p class="subtitle reveal"><strong>Fazendo uma conta de padaria rápida:</strong></p>
-        <p class="subtitle reveal">Vamos supor que você jogue fora 1 hora do seu dia brigando com setup, import e
-          contexto vazio. São 30 horas/mês evaporando do seu caixa. Bota seu valor da hora aí e vê o prejuízo. Em 3
-          meses, o buraco assusta. Num ano é o preço de um carro zero.</p>
-        <p class="subtitle reveal">O AI Like a PRO custa R$197, pagamento único. Você paga ele na primeira terça-feira
-          de paz mental que tiver operando essas IAs.</p>
-        <p class="subtitle reveal"><strong>O Antigravity não é o vilão. O seu setup sim.</strong></p>
+        <p class="subtitle reveal" style="color: #111111;">Você baixou o Antigravity, abriu, tentou configurar. Apareceu erro de terminal. Você pesquisou, achou um tutorial desatualizado de 3 meses atrás que já não funciona. Aplicou metade, quebrou outra coisa. Três horas depois, seu setup funciona mais ou menos — e você comemora como se tivesse conquistado algo.</p>
+        <p class="subtitle reveal" style="color: #111111;">Não conquistou. Você improvisou. E ambiente improvisado é o inimigo silencioso da sua produtividade.</p>
+        <p class="subtitle reveal" style="color: #111111;">Com o Claude, o padrão se repete. Você abre uma nova conversa, explica o contexto inteiro do seu projeto de novo, dá as mesmas instruções que deu ontem, recebe uma resposta genérica, ajusta, pede de novo, e 40 minutos depois tem algo ok. Amanhã, tudo isso reseta. Contexto zero. Memória zero. Você está pagando a assinatura mais cara do mercado para usar um chatbot sem memória.</p>
+        <p class="subtitle reveal" style="color: #111111;">Agora faça a conta que ninguém faz:</p>
+        <p class="subtitle reveal" style="color: #111111;">Se você perde 1 hora por dia com retrabalho causado por configuração mal feita — são 30 horas por mês. A R$50/hora, são R$1.500 por mês evaporando. Em 3 meses, R$4.500. Em um ano, R$18.000.</p>
+        <p class="subtitle reveal" style="color: #111111;">O AI Like a PRO custa R$197. Uma vez. Você recupera esse valor na primeira semana de uso com o tempo que para de desperdiçar.</p>
+        <p class="subtitle reveal" style="color: #111111;">A ferramenta não é o problema. A configuração improvisada é.</p>
       </div>
     </section>
 
@@ -1774,6 +1764,35 @@
               <a href="https://twitter.com/henriquecaner" target="_blank" rel="noopener">𝕏 Twitter</a>
               <a href="https://linkedin.com/in/henriquecaner" target="_blank" rel="noopener">LinkedIn</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRIMEIRA TURMA ===== -->
+    <section class="section-pad section-pad-text bg-main" id="primeira-turma" style="padding-bottom: 2rem;">
+      <div class="container container-narrow">
+        <div class="badge reveal">LANÇAMENTO</div>
+        <h2 class="section-title reveal">
+          <span class="line-bold">Esta é a primeira turma.</span>
+          <span class="italic">E isso é uma vantagem, não uma desvantagem.</span>
+        </h2>
+        
+        <div class="grid-2">
+          <div class="card reveal" style="background: #FFF; border: 1px solid #E5E7EB; border-radius: 16px; padding: 32px;">
+            <div class="card-icon" style="background: var(--color-bg-primary); font-size: 2rem;">🎯</div>
+            <h3 class="card-title">Preço que nunca vai existir de novo</h3>
+            <p class="card-text">R$197 é o preço de lançamento. Quem entra agora trava esse valor para sempre — incluindo todas as atualizações futuras.</p>
+          </div>
+          <div class="card reveal" style="background: #FFF; border: 1px solid #E5E7EB; border-radius: 16px; padding: 32px;">
+            <div class="card-icon" style="background: var(--color-bg-primary); font-size: 2rem;">💬</div>
+            <h3 class="card-title">Acesso direto ao criador</h3>
+            <p class="card-text">Nas primeiras turmas, eu estou presente. Você trava em algum passo, me manda mensagem. Isso não vai existir quando tiver 500 alunos.</p>
+          </div>
+          <div class="card reveal" style="background: #FFF; border: 1px solid #E5E7EB; border-radius: 16px; padding: 32px; grid-column: 1 / -1;">
+            <div class="card-icon" style="background: var(--color-bg-primary); font-size: 2rem;">🔒</div>
+            <h3 class="card-title">Sem histórico de reembolso — porque o conteúdo entrega</h3>
+            <p class="card-text">Ainda não tenho dados de reembolso porque esta é a estreia. O que eu tenho: 30+ setups próprios configurados, cada erro documentado. A garantia de 7 dias existe porque confio no que construí.</p>
           </div>
         </div>
       </div>
@@ -1843,16 +1862,19 @@
               <div class="term-dot term-dot-y"></div>
               <div class="term-dot term-dot-g"></div>
             </div>
-            <div class="mockup-content">
-              <div class="code-line code-line-blue" style="width: 40%"></div>
-              <div class="code-line code-line-gray" style="width: 75%"></div>
-              <div class="code-line code-line-light" style="width: 55%"></div>
-              <div class="code-line code-line-gray" style="width: 88%"></div>
-              <div class="code-line code-line-blue" style="width: 30%; margin-top: 8px"></div>
-              <div class="code-line code-line-light" style="width: 65%"></div>
-              <div class="code-line code-line-gray" style="width: 50%"></div>
-              <div class="code-line code-line-blue" style="width: 92%"></div>
-              <div class="cursor-blink"></div>
+            <div class="mockup-content" style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem; line-height: 1.5;">
+              <div style="color: #8B949E;"># agent.rules — Antigravity Professional Setup</div>
+              <div style="color: #79C0FF;">$ windsurf init --workspace ai-project</div>
+              <div style="color: #3FB950;">✓ Workspace initialized successfully</div>
+              <div style="height: 1rem;"></div>
+              <div style="color: #8B949E;"># Configurando Agent Rules...</div>
+              <div style="color: #79C0FF;">$ ag rules apply --template professional.json</div>
+              <div style="color: #3FB950;">✓ Rules applied: 0 hallucinations detected</div>
+              <div style="height: 1rem;"></div>
+              <div style="color: #79C0FF;">$ ag mcp install --list</div>
+              <div style="color: #3FB950;">✓ filesystem ✓ github ✓ brave-search</div>
+              <div style="color: #79C0FF;">$ ag brain init --persistent</div>
+              <div style="color: #3FB950; display: flex; align-items: center; gap: 4px;">✓ Brain structure active. Memory: permanent<div class="cursor-blink" style="margin-top: 0; background: #3FB950;"></div></div>
             </div>
           </div>
         </div>
