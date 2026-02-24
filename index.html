@@ -7,6 +7,24 @@
   <title>AI Like a PRO — Antigravity + Claude. Crie dinheiro. Não dopamina.</title>
   <meta name="description"
     content="Aprenda a configurar o Google Antigravity e o Claude como um especialista. Dois módulos práticos. Uma tarde. Resultado real.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Like a PRO — Configure Antigravity + Claude Like a PRO">
+  <meta property="og:description"
+    content="Dois módulos práticos. Uma tarde. Setup profissional de IA que para de quebrar. R$197 — pagamento único.">
+  <meta property="og:url" content="https://ailikea.pro">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Like a PRO — Antigravity + Claude">
+  <meta name="twitter:description" content="Setup profissional de IA em uma tarde. Dois módulos práticos. R$197.">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -21,7 +39,7 @@
       --color-bg-cta: #111111;
       --color-text-primary: #111111;
       --color-text-secondary: #555555;
-      --color-text-light: #888888;
+      --color-text-light: #595959;
       --color-accent: #111111;
       --color-accent-light: #EEEEEE;
       --color-check: #16A34A;
@@ -494,30 +512,20 @@
       gap: 0.5rem;
     }
 
-    /* ===== LOGOS STRIP ===== */
-    .logos-strip {
-      padding: 2.5rem 0;
-      text-align: center;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .logos-label {
-      font-size: 0.6875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .logos-grid {
+    /* ===== LESSON NUMBER MARKER ===== */
+    .lesson-number {
+      min-width: 2rem;
+      height: 2rem;
+      border-radius: 0.375rem;
+      background: var(--color-accent);
+      color: #FFF;
+      font-size: 0.75rem;
+      font-weight: 700;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 40px;
-      opacity: 0.5;
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.02em;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
     }
 
     /* ===== CARDS ===== */
@@ -808,8 +816,7 @@
     /* ===== OFFER TABLE ====== */
     .offer-table {
       background: var(--color-bg-main);
-      /* Match main background to blend */
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       border: 1px solid var(--color-border);
       margin-top: 3rem;
       padding: 1rem;
@@ -818,43 +825,41 @@
     .offer-table-inner {
       background: var(--color-bg-white);
       border: 1px solid rgba(0, 0, 0, 0.08);
-      /* faint internal border */
+      border-radius: 0.5rem;
+      overflow: hidden;
     }
 
     .offer-row {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      padding: 1.25rem 2rem;
-      border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
-      /* Receipt style dotted border */
-      transition: background 0.2s ease;
+      padding: 1.125rem 1.75rem;
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
+      gap: 1rem;
     }
 
     .offer-row:hover {
-      background: rgba(0, 0, 0, 0.02);
+      background: rgba(0, 0, 0, 0.015);
     }
 
     .offer-header {
-      font-size: 0.75rem;
+      font-size: 0.6875rem;
       font-weight: 600;
       color: var(--color-text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 1rem 2rem;
+      padding: 0.875rem 1.75rem;
       background: none;
     }
 
     .offer-price {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
       font-weight: 500;
       letter-spacing: -0.02em;
-    }
-
-    .offer-row span:first-child {
-      font-weight: 500;
+      text-align: right;
+      white-space: nowrap;
     }
 
     .offer-total {
@@ -870,23 +875,28 @@
       background: none;
       color: var(--color-text-primary);
       border-bottom: none;
-      border-top: 1px solid var(--color-text-primary);
-      /* Harsh black line for the total */
-      padding: 2.5rem 2rem;
+      border-top: 2px solid var(--color-text-primary);
+      padding: 2rem 1.75rem;
       align-items: flex-end;
     }
 
-    .offer-final span:first-child {
-      font-size: 0.8rem;
+    .offer-final-label {
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+    }
+
+    .offer-final-sub {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--color-text-light);
+      margin-top: 0.125rem;
     }
 
     .offer-final .offer-price {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 3rem;
+      font-size: 2.75rem;
       font-weight: 400;
       line-height: 1;
       letter-spacing: -0.03em;
@@ -899,7 +909,7 @@
 
     .offer-justify {
       font-size: 0.8125rem;
-      color: #6B7280;
+      color: var(--color-text-secondary);
       text-align: left;
       display: none;
     }
@@ -1005,7 +1015,7 @@
 
     .final-cta-caption {
       font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     /* ===== FAQ ACCORDION ===== */
@@ -1251,11 +1261,6 @@
       .section-title {
         font-size: 1.5rem;
       }
-
-      .logos-grid {
-        gap: 1.25rem;
-        font-size: 1rem;
-      }
     }
 
     /* ===== ANIMATIONS REVEAL ===== */
@@ -1270,6 +1275,336 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ===== #5 STICKY MOBILE CTA ===== */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--color-border);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .mobile-cta-bar .btn {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9375rem;
+    }
+
+    @media (max-width: 767px) {
+      .mobile-cta-bar {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 4.5rem;
+      }
+    }
+
+    /* ===== #9 BACK-TO-TOP COLOR FIX ===== */
+    .back-to-top {
+      background: rgba(17, 17, 17, 0.85);
+      box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top:hover {
+      box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== #10 HERO MOBILE MID-RANGE (375-767px) ===== */
+    @media (min-width: 375px) and (max-width: 767px) {
+      .title-h1 {
+        font-size: 2.75rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .final-cta-title {
+        font-size: 2.25rem;
+      }
+    }
+
+    /* ===== #12 SOCIAL PROOF AVATAR STACK ===== */
+    .avatar-stack {
+      display: inline-flex;
+      margin-right: 0.5rem;
+    }
+
+    .avatar-stack .avatar {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      border: 2px solid var(--color-bg-primary);
+      margin-left: -0.5rem;
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+    }
+
+    .avatar-stack .avatar:first-child {
+      margin-left: 0;
+    }
+
+    /* ===== #13 AUTHOR SECTION ===== */
+    .author-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .author-avatar {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .author-info {
+      flex: 1;
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-role {
+      font-size: 0.8125rem;
+      color: var(--color-text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .author-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .author-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      border-bottom: 1px solid var(--color-border);
+      transition: color 0.2s ease;
+    }
+
+    .author-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* ===== #20 FOCUS-VISIBLE STYLES ===== */
+    .btn:focus-visible,
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--color-text-primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .dark-section .btn:focus-visible,
+    .dark-section a:focus-visible,
+    .final-cta .btn:focus-visible {
+      outline-color: #FFF;
+    }
+
+    /* ===== #21 CONTRAST FIX DARK SECTIONS ===== */
+    .final-cta-caption {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .trust-badges {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .trust-badges span {
+      border-right-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ===== #24 OFFER TABLE MOBILE ===== */
+    @media (max-width: 600px) {
+      .offer-row {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem 1.25rem;
+        align-items: flex-start;
+      }
+
+      .offer-row span:first-child,
+      .offer-row div:first-child {
+        font-size: 0.9375rem;
+      }
+
+      .offer-price {
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+      }
+
+      .offer-header {
+        display: none;
+      }
+
+      .offer-final {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1.5rem 1.25rem;
+      }
+
+      .offer-final .offer-price {
+        font-size: 2.25rem;
+        color: var(--color-text-primary);
+      }
+    }
+
+    /* ===== #25 FAQ SMOOTH ANIMATION ===== */
+    .faq-item .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .faq-item[open] .faq-content {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-content>p {
+      overflow: hidden;
+    }
+
+    /* ===== #26 SPACING NORMALIZATION ===== */
+    .module-section {
+      padding: 6rem 0;
+    }
+
+    /* ===== TESTIMONIALS AUTHOR AVATARS ===== */
+    .testi-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testi-author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== PROOF SECTION ENHANCED MOCKUPS ===== */
+    .proof-mockup-terminal {
+      background: var(--color-terminal);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      height: 13.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proof-mockup-terminal .mockup-header {
+      padding: 0.75rem 1rem;
+    }
+
+    .proof-mockup-terminal .mockup-content {
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .proof-mockup-claude {
+      background: #FAFAFA;
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      height: 13.75rem;
+      display: flex;
+    }
+
+    .proof-mockup-claude .claude-sidebar {
+      width: 3rem;
+      background: #F0F0F0;
+      border-right: 1px solid var(--color-border);
+      padding: 1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .proof-mockup-claude .sidebar-dot {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 0.375rem;
+      background: rgba(0, 0, 0, 0.07);
+    }
+
+    .proof-mockup-claude .sidebar-dot:first-child {
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .proof-mockup-claude .claude-main {
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .proof-mockup-claude .msg-bubble {
+      background: #FFF;
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+    }
+
+    .proof-mockup-claude .msg-line {
+      height: 0.375rem;
+      border-radius: 2px;
+      background: rgba(0, 0, 0, 0.06);
+      margin-bottom: 0.375rem;
+    }
+
+    .proof-mockup-claude .msg-line:last-child {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 
@@ -1282,7 +1617,7 @@
       <div class="nav-links">
         <a href="#module-1">Módulos</a>
         <a href="#offer">Oferta</a>
-        <a href="#testimonials">Resultados</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="nav-btn-desktop">
         <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
@@ -1297,7 +1632,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#module-1">Módulos</a>
     <a href="#offer">Oferta</a>
-    <a href="#testimonials">Resultados</a>
+    <a href="#faq">FAQ</a>
     <a href="#offer" class="btn btn-primary">Garantir Minha Vaga →</a>
   </div>
 
@@ -1324,6 +1659,13 @@
           <a href="#module-1" class="btn btn-secondary">Ver o que está incluso ↓</a>
         </div>
         <div class="social-proof">
+          <div class="avatar-stack">
+            <div class="avatar">MV</div>
+            <div class="avatar">CR</div>
+            <div class="avatar">AC</div>
+            <div class="avatar">RA</div>
+            <div class="avatar">+</div>
+          </div>
           ✦ +500 profissionais de IA já garantiram
         </div>
       </div>
@@ -1387,7 +1729,7 @@
     <!-- ===== CTA 1 ===== -->
     <section class="section-pad bg-main text-center" id="cta1">
       <div class="container">
-        <a href="#offer" class="btn btn-primary btn-xl">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+        <a href="#offer" class="btn btn-primary btn-xl">QUERO CONFIGURAR LIKE A PRO — R$197</a>
         <p class="final-cta-caption cta-caption-mt">Acesso imediato · Preço de lançamento até 10 de março</p>
       </div>
     </section>
@@ -1412,6 +1754,17 @@
         <p class="subtitle reveal">Eu demorei semanas errando para descobrir isso. O AI Like a PRO reduz esse tempo de
           tela para duas sessões práticas. Abro meu terminal, você monta junto. Sem slide. Sem teoria maçante. Sem papo
           de mindset motivacional.</p>
+        <div class="author-block reveal">
+          <div class="author-avatar">HC</div>
+          <div class="author-info">
+            <div class="author-name">Henrique Caner</div>
+            <div class="author-role">Builder · 30+ ambientes de IA configurados</div>
+            <div class="author-links">
+              <a href="https://twitter.com/henriquecaner" target="_blank" rel="noopener">𝕏 Twitter</a>
+              <a href="https://linkedin.com/in/henriquecaner" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1426,53 +1779,47 @@
           </h2>
           <ul class="check-list">
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">01</div>
               <div><strong>Aula 1 — Instalação Sem Erro:</strong> Setup correto no Windows, Mac e Linux. Fechamos as
                 brechas que 80% dos tutoriais ignoram e que causam tela vermelha dois dias depois. <em>Você sai com:
                   Antigravity rodando sem gargalos.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">02</div>
               <div><strong>Aula 2 — Workspace Profissional:</strong> A diferença gritante entre um projeto que trava na
                 terceira rota e um que engole tasks robustas. <em>Você sai com: Base limpa pronta para o
                   multi-agentes.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">03</div>
               <div><strong>Aula 3 — GitHub Integrado:</strong> Amarre seus repositórios. O agente lê, propõe pull
                 requests e commita código direto onde importa. <em>Você sai com: Versionamento inteligente e invisível
                   ao toque.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">04</div>
               <div><strong>Aula 4 — Agent Rules à Prova de Balas:</strong> Trave os limites do robô. Chega de IA que
                 começa apagando arquivos da root. <em>Você sai com: Meu template pessoal de regras testadas.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">05</div>
               <div><strong>Aula 5 — Múltiplos Agentes:</strong> Orquestração sem choque de cabeças. O agente de front
                 não deve brigar com o de deploy. <em>Você sai com: Workflow de 2+ agentes integrados.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">06</div>
               <div><strong>Aula 6 — Ferramentas (MCPs):</strong> Adicione leitura nativa do seu browser, pesquisa no
                 Google e manipulação de DB remoto ao agente. <em>Você sai com: Agentes armados até os dentes.</em></div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="lesson-number">07</div>
               <div><strong>Aula 7 — Estrutura Brain (Memória Contínua):</strong> O segredo do Antigravity. Como criar
                 log de decisões para o agente nunca perder contexto na refatoração daquele código de duas semanas atrás.
                 <em>Você sai com: O Brain rodando perfeitamente.</em>
               </div>
             </li>
             <li>
-              <svg class="check-svg blue" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="lesson-number">08</div>
               <div><strong>Aula 8 — O Build ao Vivo:</strong> Tudo amarrado numa aplicação real feita na hora. <em>Você
                   sai com: A certeza que o ambiente resolve gargalos crônicos do dev.</em></div>
             </li>
@@ -1512,22 +1859,19 @@
           </h2>
           <ul class="check-list">
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">01</div>
               <div><strong>Aula 1 — Projetos com Contexto Ativo:</strong> Criação do "Project" no Claude injetando files
                 e documentações raiz pesadas. <em>Você sai com: Um Claude focado, que não te obriga a colar a spec
                   inteira a cada janela nova.</em></div>
             </li>
             <li>
-              <div class="brutal-marker"></div>
+              <div class="lesson-number">02</div>
               <div><strong>Aula 2 — Injectando Skills Automatizadas:</strong> Parametrize "Skills" estáticas que rodam
                 sem você redigitar blocos de regex. <em>Você sai com: Micro-rotinas do Claude ativadas com 3
                   cliques.</em></div>
             </li>
             <li>
-              <svg class="check-svg green" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
+              <div class="lesson-number">03</div>
               <div><strong>Aula 3 — O Teste de Fogo:</strong> Executando uma bateria de entregas complexas no projeto
                 que estruturamos, e provando a eficácia. <em>Você sai com: Entendimento absoluto da limitação e do poder
                   real da antropia na prática.</em></div>
@@ -1559,33 +1903,6 @@
       </div>
     </section>
 
-    <!-- ===== PROVA VISUAL ===== -->
-    <section class="section-pad bg-main" id="proof">
-      <div class="container">
-        <div class="badge reveal">PROVA VISUAL</div>
-        <h2 class="section-title reveal">
-          <span class="line-bold">O que sobra no seu monitor ao final:</span>
-        </h2>
-        <p class="subtitle reveal">Sem teoria. É assim que a sua máquina fica configurada.</p>
-        <div class="grid-2">
-          <div>
-            <div class="proof-placeholder proof-placeholder-dark">
-              📸 Screenshot do Antigravity — em breve
-            </div>
-            <p class="proof-caption">Workspace com log limpo, dois agentes trabalhando em série sob o mesmo Brain. Em
-              uma tarde.</p>
-          </div>
-          <div>
-            <div class="proof-placeholder proof-placeholder-light">
-              📸 Screenshot do Claude Projects — em breve
-            </div>
-            <p class="proof-caption">O projeto segurando contexto de codebase imensa e puxando Skills com slash command.
-            </p>
-          </div>
-        </div>
-        <p class="proof-footer">Os dois funcionando juntos. Montados da estaca zero. Sem firula.</p>
-      </div>
-    </section>
 
     <!-- ===== FOR WHO ===== -->
     <section class="section-pad bg-white" id="for-who">
@@ -1670,37 +1987,30 @@
             <div class="offer-row offer-header">
               <div>O QUE ESTÁ INCLUSO</div>
               <div>VALOR</div>
-              <div class="offer-justify">POR QUE VALE</div>
             </div>
             <div class="offer-row">
               <div><strong>Módulo 1:</strong> Antigravity do Zero ao Avançado — 8 aulas</div>
               <div class="offer-price">R$ 297</div>
-              <div class="offer-justify">Consultoria individual custa R$100+/hora. São 6+ horas de conteúdo.</div>
             </div>
             <div class="offer-row">
               <div><strong>Módulo 2:</strong> Claude Projects + Skills — 3 aulas</div>
               <div class="offer-price">R$ 197</div>
-              <div class="offer-justify">Substitui semanas de tentativa e erro com caminho documentado.</div>
             </div>
             <div class="offer-row">
               <div><strong>Bônus 1:</strong> Checklist Zero Erro</div>
               <div class="offer-price">R$ 97</div>
-              <div class="offer-justify">Economiza 5+ horas/mês de retrabalho em configuração.</div>
             </div>
             <div class="offer-row">
               <div><strong>Bônus 2:</strong> Templates de Agent Rules</div>
               <div class="offer-price">R$ 147</div>
-              <div class="offer-justify">30+ horas de testes condensadas em templates prontos para copiar.</div>
             </div>
             <div class="offer-row">
               <div><strong>Bônus 3:</strong> Pack de Skills Claude</div>
               <div class="offer-price">R$ 147</div>
-              <div class="offer-justify">Skills prontas que economizam 20+ minutos cada uso.</div>
             </div>
             <div class="offer-row">
               <div>Acesso vitalício + atualizações</div>
               <div class="offer-price">R$ 97</div>
-              <div class="offer-justify">Ferramentas mudam rápido. Aulas atualizadas sem custo extra.</div>
             </div>
             <div class="offer-row offer-total">
               <div>Valor Total</div>
@@ -1708,10 +2018,8 @@
             </div>
             <div class="offer-row offer-final">
               <div>
-                <span>SEU INVESTIMENTO</span>
-                <br>
-                <span
-                  style="font-size: 0.8em; opacity: 0.6; font-weight: 400; text-transform: none;">(Lançamento)</span>
+                <div class="offer-final-label">SEU INVESTIMENTO</div>
+                <div class="offer-final-sub">(Lançamento)</div>
               </div>
               <div class="offer-price">R$ 197</div>
             </div>
@@ -1719,7 +2027,7 @@
         </div>
         <div class="offer-cta">
           <!-- TODO: inserir link do checkout aqui -->
-          <a href="#" class="btn btn-primary btn-large">QUERO CONFIGURAR COMO PROFISSIONAL — R$197</a>
+          <a href="#" class="btn btn-primary btn-large">QUERO CONFIGURAR LIKE A PRO — R$197</a>
         </div>
       </div>
     </section>
@@ -1818,55 +2126,6 @@
       </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
-    <!-- TODO: substituir por depoimentos reais após primeiros alunos -->
-    <section class="section-pad bg-white" id="testimonials">
-      <div class="container">
-        <div class="badge reveal">RESULTADOS</div>
-        <h2 class="section-title reveal">
-          <span class="line-bold">Quem já usou</span>
-          <span class="italic">não volta atrás.</span>
-        </h2>
-        <div class="grid-2x2">
-          <div class="card reveal">
-            <div class="stars">★★★★★</div>
-            <p class="testi-text">"Instalei o Antigravity em minutos seguindo o passo a passo. A estrutura de workspaces
-              mudou a forma que minha equipe constrói as features no dia a dia."</p>
-            <div class="testi-author">
-              <strong>Marcos Vinicius</strong>
-              <span>Desenvolvedor Fullstack</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="stars">★★★★★</div>
-            <p class="testi-text">"Sempre usei o Claude, mas configurar os Projects com os insights do Módulo 2 aumentou
-              minha produtividade em pelo menos 3x. Não preciso ficar repetindo contexto."</p>
-            <div class="testi-author">
-              <strong>Carla Ribeiro</strong>
-              <span>Product Manager</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="stars">★★★★★</div>
-            <p class="testi-text">"Não sou programadora, mas com esse treinamento consegui estruturar uma automação com
-              Claude Skills que reduziu o tempo de análise de dados da minha empresa para zero."</p>
-            <div class="testi-author">
-              <strong>Amanda Costa</strong>
-              <span>Empreendedora</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="stars">★★★★★</div>
-            <p class="testi-text">"A didática é incrível. Ele vai direto ao ponto sem enrolação. A parte sobre as Agent
-              Rules foi o que explodiu minha cabeça e ajustou totalmente minhas expectativas."</p>
-            <div class="testi-author">
-              <strong>Roberto Almeida</strong>
-              <span>Tech Lead</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== FINAL CTA ===== -->
     <section class="final-cta" id="final-cta">
@@ -1973,10 +2232,16 @@
       <div class="footer-links">
         <a href="#">Política de Privacidade</a>
         <a href="#">Termos de Uso</a>
+        <a href="mailto:contato@ailikea.pro">Contato</a>
       </div>
       <div class="footer-copy">© 2026 AI Like a PRO. Todos os direitos reservados.</div>
     </div>
   </footer>
+
+  <!-- ===== STICKY MOBILE CTA ===== -->
+  <div class="mobile-cta-bar" id="mobileCta">
+    <a href="#offer" class="btn btn-primary">CONFIGURAR LIKE A PRO — R$197</a>
+  </div>
 
   <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">⬆</button>
