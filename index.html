@@ -626,6 +626,70 @@
       font-size: 1.125rem;
     }
 
+    /* ===== LESSON GRID ===== */
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .lesson-card {
+      background: #0A0A0A;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: left;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .lesson-card .lesson-icon-wrap {
+      width: 2.75rem;
+      height: 2.75rem;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3B82F6;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .lesson-card-title {
+      color: #FFF;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      line-height: 1.3;
+    }
+
+    .lesson-card-text {
+      color: #A3A3A3;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .lesson-card-text em {
+      display: block;
+      margin-top: 0.75rem;
+      color: #2563EB;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     /* ===== TERMINAL MOCKUP ===== */
     .mockup-terminal {
       background: var(--color-terminal);
@@ -1223,6 +1287,11 @@
 
       .grid-2 {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .lesson-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
       }
 
       .offer-justify {
@@ -1832,53 +1901,57 @@
             <span class="line-bold">Google Antigravity: do Zero ao Avançado</span>
             <span class="italic">8 aulas práticas. Tela aberta. Resultado no final.</span>
           </h2>
-          <ul class="check-list">
-            <li>
-              <div class="lesson-number">01</div>
-              <div><strong>Aula 1. Instalação Sem Erro:</strong> Setup correto no Windows, Mac e Linux. Fechamos as
-                brechas que 80% dos tutoriais ignoram e que causam tela vermelha dois dias depois. <em>Você sai com:
-                  Antigravity rodando sem gargalos.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">02</div>
-              <div><strong>Aula 2. Workspace Profissional:</strong> A diferença gritante entre um projeto que trava na
-                terceira rota e um que engole tasks robustas. <em>Você sai com: Base limpa pronta para o
-                  multi-agentes.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">03</div>
-              <div><strong>Aula 3. GitHub Integrado:</strong> Amarre seus repositórios. O agente lê, propõe pull
-                requests e commita código direto onde importa. <em>Você sai com: Versionamento inteligente e invisível
-                  ao toque.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">04</div>
-              <div><strong>Aula 4. Agent Rules à Prova de Balas:</strong> Trave os limites do robô. Chega de IA que
-                começa apagando arquivos da root. <em>Você sai com: Meu template pessoal de regras testadas.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">05</div>
-              <div><strong>Aula 5. Múltiplos Agentes:</strong> Orquestração sem choque de cabeças. O agente de front
-                não deve brigar com o de deploy. <em>Você sai com: Workflow de 2+ agentes integrados.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">06</div>
-              <div><strong>Aula 6. Ferramentas (MCPs):</strong> Adicione leitura nativa do seu browser, pesquisa no
-                Google e manipulação de DB remoto ao agente. <em>Você sai com: Agentes armados até os dentes.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">07</div>
-              <div><strong>Aula 7. Estrutura Brain (Memória Contínua):</strong> O segredo do Antigravity. Como criar
-                log de decisões para o agente nunca perder contexto na refatoração daquele código de duas semanas atrás.
-                <em>Você sai com: O Brain rodando perfeitamente.</em>
+          <div class="lesson-grid">
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">01</div>
+              <div class="lesson-card-title">Instalação Sem Erro</div>
+              <div class="lesson-card-text">Setup correto no Windows, Mac e Linux. Fechamos as brechas que 80% dos
+                tutoriais ignoram e que causam tela vermelha. <em>Você sai com: Antigravity rodando sem gargalos.</em>
               </div>
-            </li>
-            <li>
-              <div class="lesson-number">08</div>
-              <div><strong>Aula 8. O Build ao Vivo:</strong> Tudo amarrado numa aplicação real feita na hora. <em>Você
-                  sai com: A certeza que o ambiente resolve gargalos crônicos do dev.</em></div>
-            </li>
-          </ul>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">02</div>
+              <div class="lesson-card-title">Workspace Profissional</div>
+              <div class="lesson-card-text">A diferença gritante entre um projeto que trava na terceira rota e um que
+                engole tasks robustas. <em>Você sai com: Base limpa pronta para multi-agentes.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">03</div>
+              <div class="lesson-card-title">GitHub Integrado</div>
+              <div class="lesson-card-text">Amarre seus repositórios. O agente lê, propõe pull requests e commita código
+                direto onde importa. <em>Você sai com: Versionamento inteligente e invisível ao toque.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">04</div>
+              <div class="lesson-card-title">Agent Rules à Prova de Balas</div>
+              <div class="lesson-card-text">Trave os limites do robô. Chega de IA que começa apagando arquivos da root.
+                <em>Você sai com: Meu template pessoal de regras testadas.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">05</div>
+              <div class="lesson-card-title">Múltiplos Agentes</div>
+              <div class="lesson-card-text">Orquestração sem choque de cabeças. O agente de front não deve brigar com o
+                de deploy. <em>Você sai com: Workflow de 2+ agentes integrados.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">06</div>
+              <div class="lesson-card-title">Ferramentas (MCPs)</div>
+              <div class="lesson-card-text">Adicione leitura nativa do seu browser, pesquisa no Google e manipulação de
+                DB remoto ao agente. <em>Você sai com: Agentes armados até os dentes.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">07</div>
+              <div class="lesson-card-title">Estrutura Brain (Memória Contínua)</div>
+              <div class="lesson-card-text">O segredo do Antigravity. Como criar log de decisões para o agente nunca
+                perder contexto na refatoração. <em>Você sai com: O Brain rodando perfeitamente.</em></div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">08</div>
+              <div class="lesson-card-title">O Build ao Vivo</div>
+              <div class="lesson-card-text">Tudo amarrado numa aplicação real feita na hora. <em>Você sai com: A certeza
+                  que o ambiente resolve gargalos crônicos do dev.</em></div>
+            </div>
+          </div>
         </div>
         <div class="split-mockup">
           <div class="mockup-terminal reveal">
@@ -1918,26 +1991,28 @@
             <span class="line-bold">Claude: O Sistema que Trabalha por Você</span>
             <span class="italic">3 aulas práticas. O Claude nunca mais vai ser "só um chatbot."</span>
           </h2>
-          <ul class="check-list">
-            <li>
-              <div class="lesson-number">01</div>
-              <div><strong>Aula 1. Projetos com Contexto Ativo:</strong> Criação do "Project" no Claude injetando files
-                e documentações raiz pesadas. <em>Você sai com: Um Claude focado, que não te obriga a colar a spec
-                  inteira a cada janela nova.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">02</div>
-              <div><strong>Aula 2. Injectando Skills Automatizadas:</strong> Parametrize "Skills" estáticas que rodam
-                sem você redigitar blocos de regex. <em>Você sai com: Micro-rotinas do Claude ativadas com 3
-                  cliques.</em></div>
-            </li>
-            <li>
-              <div class="lesson-number">03</div>
-              <div><strong>Aula 3. O Teste de Fogo:</strong> Executando uma bateria de entregas complexas no projeto
-                que estruturamos, e provando a eficácia. <em>Você sai com: Entendimento absoluto da limitação e do poder
-                  real da antropia na prática.</em></div>
-            </li>
-          </ul>
+          <div class="lesson-grid">
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">01</div>
+              <div class="lesson-card-title">Projetos com Contexto Ativo</div>
+              <div class="lesson-card-text">Criação do "Project" no Claude injetando files e documentações raiz pesadas.
+                <em>Você sai com: Um Claude focado, que não te obriga a colar a spec inteira a cada janela nova.</em>
+              </div>
+            </div>
+            <div class="lesson-card reveal">
+              <div class="lesson-icon-wrap">02</div>
+              <div class="lesson-card-title">Injectando Skills Automatizadas</div>
+              <div class="lesson-card-text">Parametrize "Skills" estáticas que rodam sem você redigitar blocos de regex.
+                <em>Você sai com: Micro-rotinas do Claude ativadas com 3 cliques.</em></div>
+            </div>
+            <div class="lesson-card reveal" style="grid-column: 1 / -1;">
+              <div class="lesson-icon-wrap">03</div>
+              <div class="lesson-card-title">O Teste de Fogo</div>
+              <div class="lesson-card-text">Executando uma bateria de entregas complexas no projeto que estruturamos, e
+                provando a eficácia. <em>Você sai com: Entendimento absoluto da limitação e do poder real da antropia na
+                  prática.</em></div>
+            </div>
+          </div>
           <p class="subtitle footnote">São apenas 3 aulas aqui, pois se configurado direito, o Claude é estúpido de
             simples. O segredo é apertar os parafusos corretos, e não ficar ouvindo coach recitar prompt de "aja como
             sênior dez anos de xp".</p>
