@@ -1812,10 +1812,169 @@
       color: #111111;
     }
 
+    /* ===== FORM MODAL ===== */
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .modal-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .modal-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .modal-form-group label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #374151;
+      letter-spacing: 0.01em;
+    }
+
+    .modal-form-group input {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      font-size: 0.9375rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #111;
+      background: #FAFAFA;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      outline: none;
+      width: 100%;
+    }
+
+    .modal-form-group input:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      background: #FFF;
+    }
+
+    .modal-form-group input::placeholder {
+      color: #9CA3AF;
+      font-weight: 400;
+    }
+
+    .modal-form-group input.input-error {
+      border-color: #EF4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .modal-form-subtitle {
+      font-size: 0.875rem;
+      color: #6B7280;
+      margin-top: -0.5rem;
+    }
+
+    .modal-form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.9375rem 2rem;
+      background: #2563EB;
+      color: #FFF;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      margin-top: 0.5rem;
+    }
+
+    .modal-form-submit:hover {
+      background: #1D4ED8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .modal-form-submit:active {
+      transform: translateY(0);
+    }
+
+    .modal-form-submit:disabled {
+      background: #93C5FD;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .modal-form-submit .spinner {
+      display: none;
+      width: 1.125rem;
+      height: 1.125rem;
+      border: 2.5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #FFF;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    .modal-form-submit.loading .spinner {
+      display: block;
+    }
+
+    .modal-form-submit.loading .btn-text {
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .modal-form-error {
+      display: none;
+      padding: 0.75rem 1rem;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 8px;
+      color: #DC2626;
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+
+    .modal-form-error.show {
+      display: block;
+    }
+
+    .modal-form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      font-size: 0.75rem;
+      color: #9CA3AF;
+      margin-top: 0.25rem;
+    }
+
+    .modal-form-footer svg {
+      width: 0.875rem;
+      height: 0.875rem;
+      fill: #9CA3AF;
+    }
+
     @media (max-width: 768px) {
       .modal-box {
         padding: 32px 24px;
         border-radius: 16px;
+      }
+
+      .modal-form-row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
       }
     }
   </style>
@@ -1833,7 +1992,8 @@
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav-btn-desktop">
-        <a href="#offer" class="btn btn-primary">Entrar na Primeira Turma →</a>
+        <a href="#" onclick="openModal('modal-checkout-form'); return false;" class="btn btn-primary">Entrar na Primeira
+          Turma →</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span>
@@ -1846,7 +2006,8 @@
     <a href="#module-1">Módulos</a>
     <a href="#offer">Oferta</a>
     <a href="#faq">FAQ</a>
-    <a href="#offer" class="btn btn-primary">Entrar na Primeira Turma →</a>
+    <a href="#" onclick="openModal('modal-checkout-form'); return false;" class="btn btn-primary">Entrar na Primeira
+      Turma →</a>
   </div>
 
   <main>
@@ -1872,7 +2033,8 @@
           Antigravity com agentes, MCPs e memória permanente — e como transformar o Claude em um sistema com contexto e
           automação. Uma tarde. Você sai com os dois funcionando.</p>
         <div class="hero-actions">
-          <a href="#offer" class="btn btn-primary">CONFIGURAR LIKE A PRO por R$197</a>
+          <a href="#" onclick="openModal('modal-checkout-form'); return false;" class="btn btn-primary">CONFIGURAR LIKE
+            A PRO por R$197</a>
           <a href="#module-1" class="btn btn-secondary">Ver o que está incluso ↓</a>
         </div>
         <div class="social-proof">
@@ -2292,7 +2454,8 @@
         </div>
         <div class="offer-cta">
           <!-- TODO: inserir link do checkout aqui -->
-          <a href="#" class="btn btn-primary btn-large">QUERO CONFIGURAR LIKE A PRO | R$197</a>
+          <a href="#" onclick="openModal('modal-checkout-form'); return false;" class="btn btn-primary btn-large">QUERO
+            CONFIGURAR LIKE A PRO | R$197</a>
         </div>
       </div>
     </section>
@@ -2415,7 +2578,8 @@
           aquele tutorial incompleto do indiano até estragar a base do seu projeto com dependência cruzada.</p>
         <p class="final-cta-sub cta-sub-mt">Opção dois: você entra pro curso, quebra a fundação certa com dois cliques
           numa tarde, e tira isso da frente de uma vez por todas pro resto do ano.</p>
-        <a href="#offer" class="btn btn-primary btn-xl final-cta-btn">CONFIGURAR LIKE A PRO por R$197</a>
+        <a href="#" onclick="openModal('modal-checkout-form'); return false;"
+          class="btn btn-primary btn-xl final-cta-btn">CONFIGURAR LIKE A PRO por R$197</a>
         <p class="final-cta-caption">Liberação instantânea do módulo · Lança até 10 de março · Reembolso blindado 7 dias
         </p>
       </div>
@@ -2518,7 +2682,8 @@
 
   <!-- ===== STICKY MOBILE CTA ===== -->
   <div class="mobile-cta-bar" id="mobileCta">
-    <a href="#offer" class="btn btn-primary">CONFIGURAR LIKE A PRO | R$197</a>
+    <a href="#" onclick="openModal('modal-checkout-form'); return false;" class="btn btn-primary">CONFIGURAR LIKE A PRO
+      | R$197</a>
   </div>
 
   <!-- Back to Top Button -->
@@ -2710,6 +2875,53 @@
     </div>
   </div>
 
+  <!-- MODAL 4: CHECKOUT FORM -->
+  <div class="modal-overlay" id="modal-checkout-form">
+    <div class="modal-box" style="max-width: 520px;">
+      <button class="modal-close" onclick="closeModal('modal-checkout-form')">&times;</button>
+      <h2>Quase lá! 🚀</h2>
+      <p class="modal-form-subtitle">Preencha seus dados para ir ao checkout seguro.</p>
+
+      <div id="checkout-form-error" class="modal-form-error"></div>
+
+      <form id="checkout-form" class="modal-form" novalidate>
+        <div class="modal-form-row">
+          <div class="modal-form-group">
+            <label for="cf-nome">Nome *</label>
+            <input type="text" id="cf-nome" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="modal-form-group">
+            <label for="cf-sobrenome">Sobrenome *</label>
+            <input type="text" id="cf-sobrenome" name="sobrenome" required placeholder="Seu sobrenome">
+          </div>
+        </div>
+        <div class="modal-form-group">
+          <label for="cf-email">E-mail *</label>
+          <input type="email" id="cf-email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="modal-form-group">
+          <label for="cf-whatsapp">WhatsApp *</label>
+          <input type="tel" id="cf-whatsapp" name="whatsapp" required placeholder="(11) 99999-9999">
+        </div>
+        <div class="modal-form-group">
+          <label for="cf-linkedin">Perfil LinkedIn</label>
+          <input type="url" id="cf-linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/">
+        </div>
+        <button type="submit" class="modal-form-submit" id="checkout-submit">
+          <span class="btn-text">IR PARA O CHECKOUT SEGURO →</span>
+          <span class="spinner"></span>
+        </button>
+        <div class="modal-form-footer">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm-6 8h12v10H6V11z" />
+          </svg>
+          Pagamento 100% seguro via InfinitePay
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -2740,6 +2952,104 @@
         });
       }
     });
+
+    // WhatsApp mask
+    (function () {
+      const whatsInput = document.getElementById('cf-whatsapp');
+      if (!whatsInput) return;
+      whatsInput.addEventListener('input', function () {
+        let v = this.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 6) v = '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);
+        else if (v.length > 2) v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
+        else if (v.length > 0) v = '(' + v;
+        this.value = v;
+      });
+    })();
+
+    // Checkout form submission
+    (function () {
+      const form = document.getElementById('checkout-form');
+      const submitBtn = document.getElementById('checkout-submit');
+      const errorDiv = document.getElementById('checkout-form-error');
+      const EDGE_FN_URL = 'https://ucgvrpavqhiwnlvhhpmc.supabase.co/functions/v1/create-checkout';
+
+      if (!form) return;
+
+      function showError(msg) {
+        errorDiv.textContent = msg;
+        errorDiv.classList.add('show');
+      }
+
+      function hideError() {
+        errorDiv.classList.remove('show');
+      }
+
+      function setLoading(loading) {
+        submitBtn.disabled = loading;
+        submitBtn.classList.toggle('loading', loading);
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hideError();
+
+        // Clear previous error styling
+        form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+
+        const nome = document.getElementById('cf-nome').value.trim();
+        const sobrenome = document.getElementById('cf-sobrenome').value.trim();
+        const email = document.getElementById('cf-email').value.trim();
+        const whatsapp = document.getElementById('cf-whatsapp').value.trim();
+        const linkedin = document.getElementById('cf-linkedin').value.trim();
+
+        // Validation
+        let hasError = false;
+        if (!nome) { document.getElementById('cf-nome').classList.add('input-error'); hasError = true; }
+        if (!sobrenome) { document.getElementById('cf-sobrenome').classList.add('input-error'); hasError = true; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          document.getElementById('cf-email').classList.add('input-error'); hasError = true;
+        }
+        if (!whatsapp || whatsapp.replace(/\D/g, '').length < 10) {
+          document.getElementById('cf-whatsapp').classList.add('input-error'); hasError = true;
+        }
+
+        if (hasError) {
+          showError('Por favor, preencha todos os campos obrigatórios corretamente.');
+          return;
+        }
+
+        setLoading(true);
+
+        try {
+          const res = await fetch(EDGE_FN_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, sobrenome, email, whatsapp, linkedin }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok || !data.checkout_url) {
+            throw new Error(data.error || 'Erro ao gerar checkout. Tente novamente.');
+          }
+
+          // Redirect to InfinitePay checkout
+          window.location.href = data.checkout_url;
+        } catch (err) {
+          console.error('Checkout error:', err);
+          showError(err.message || 'Erro inesperado. Tente novamente.');
+          setLoading(false);
+        }
+      });
+
+      // Remove error styling on input
+      form.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', function () {
+          this.classList.remove('input-error');
+          hideError();
+        });
+      });
+    })();
   </script>
 </body>
 

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Confirmado | AI Like a PRO</title>
+    <meta name="description" content="Seu pagamento foi confirmado. Bem-vindo ao AI Like a PRO!">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0A0A0A;
+            color: #F6F5F0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        /* Background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .success-container {
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, #16A34A, #22C55E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 40px rgba(22, 163, 74, 0.3);
+            animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .success-icon svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: #FFF;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            animation: fadeUp 0.6s ease 0.2s both;
+        }
+
+        .success-subtitle {
+            font-size: 1.125rem;
+            color: #A3A3A3;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.6s ease 0.35s both;
+        }
+
+        .success-subtitle strong {
+            color: #F6F5F0;
+        }
+
+        @keyframes fadeUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .success-card {
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            animation: fadeUp 0.6s ease 0.5s both;
+        }
+
+        .success-card-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #16A34A;
+            margin-bottom: 1.25rem;
+        }
+
+        .success-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .success-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+            color: #D4D4D4;
+            line-height: 1.5;
+        }
+
+        .success-card li .check {
+            flex-shrink: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: #16A34A;
+            margin-top: 0.1rem;
+        }
+
+        .success-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            background: #2563EB;
+            color: #FFF;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            animation: fadeUp 0.6s ease 0.65s both;
+        }
+
+        .success-btn:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .success-footer {
+            margin-top: 2rem;
+            font-size: 0.8125rem;
+            color: #525252;
+            animation: fadeUp 0.6s ease 0.8s both;
+        }
+
+        .success-footer a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        .success-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+            opacity: 0;
+            animation: confettiFall 3s ease-in forwards;
+            z-index: 0;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100vh) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Confetti decoration -->
+    <script>
+        (function () {
+            const colors = ['#2563EB', '#16A34A', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899'];
+            for (let i = 0; i < 30; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+                piece.style.width = (6 + Math.random() * 6) + 'px';
+                piece.style.height = (6 + Math.random() * 6) + 'px';
+                document.body.appendChild(piece);
+            }
+        })();
+    </script>
+
+    <div class="success-container">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+            </svg>
+        </div>
+
+        <h1 class="success-title">Pagamento confirmado!</h1>
+        <p class="success-subtitle">
+            Tudo certo. Seu acesso ao <strong>AI Like a PRO</strong> está garantido.
+            Em breve você receberá um e-mail com todos os detalhes do curso.
+        </p>
+
+        <div class="success-card">
+            <div class="success-card-title">O que acontece agora</div>
+            <ul>
+                <li>
+                    <svg class="check" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                    </svg>
+                    <span>Seu pagamento foi processado com sucesso</span>
+                </li>
+                <li>
+                    <svg class="check" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                    </svg>
+                    <span>Você receberá as instruções de acesso por e-mail</span>
+                </li>
+                <li>
+                    <svg class="check" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                    </svg>
+                    <span>Qualquer dúvida, fale direto comigo pelo WhatsApp</span>
+                </li>
+            </ul>
+        </div>
+
+        <a href="https://ailikea.pro" class="success-btn">Voltar ao site →</a>
+
+        <div class="success-footer">
+            Dúvidas? <a href="https://wa.me/5511970530947" target="_blank">WhatsApp</a> · <a
+                href="mailto:caner@thelevel.com.br">caner@thelevel.com.br</a>
+        </div>
+    </div>
+</body>
+
+</html>
