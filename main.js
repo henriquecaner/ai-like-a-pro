@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('checkout-form');
   const submitBtn = document.getElementById('checkout-submit');
   const errorDiv = document.getElementById('checkout-form-error');
-  const EDGE_FN_URL = 'https://ucgvrpavqhiwnlvhhpmc.supabase.co/functions/v1/create-checkout';
+  const EDGE_FN_URL = '/create-checkout';
 
   if (form) {
     // M-03: flag para prevenir duplo envio (clique duplo / rede lenta)
