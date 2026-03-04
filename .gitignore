@@ -1,0 +1,11 @@
+# Dependências locais (nunca vão para o servidor)
+node_modules/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp

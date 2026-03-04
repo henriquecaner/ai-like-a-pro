@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /Humanizer-agent.md
+Disallow: /success.html
 
 Sitemap: https://ailikea.pro/sitemap.xml
