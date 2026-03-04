@@ -5,7 +5,7 @@
 const INFINITEPAY_HANDLE = 'leveltech';
 
 function corsHeaders(origin) {
-    const allowed = 'https://ailikea.pro';
+    const allowed = 'https://growthclub.pro';
     return {
         'Access-Control-Allow-Origin': origin === allowed ? origin : allowed,
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -25,13 +25,13 @@ export async function onRequestPost({ request, env }) {
     const headers = { ...corsHeaders(origin), 'Content-Type': 'application/json' };
 
     const RESEND_API_KEY = env.RESEND_API_KEY;
-    const REDIRECT_URL = env.REDIRECT_URL || 'https://ailikea.pro/success.html';
+    const REDIRECT_URL = env.REDIRECT_URL || 'https://growthclub.pro/success.html';
     const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL;
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
 
     // URL do webhook registrada no InfinitePay (aponta para este mesmo site)
-    const WEBHOOK_BASE = 'https://ailikea.pro/checkout-webhook';
+    const WEBHOOK_BASE = 'https://growthclub.pro/checkout-webhook';
     const WEBHOOK_URL = WEBHOOK_SECRET
         ? `${WEBHOOK_BASE}?secret=${WEBHOOK_SECRET}`
         : WEBHOOK_BASE;
