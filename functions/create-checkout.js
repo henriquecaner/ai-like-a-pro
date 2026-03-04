@@ -66,7 +66,7 @@ export async function onRequestPost({ request, env }) {
         // ── Criar link de checkout no InfinitePay ──────────────────────────────
         const infinitePayPayload = {
             handle: INFINITEPAY_HANDLE,
-            items: [{ quantity: 1, price: 19700, description: 'AI LIKE A PRO - Grupo 1', sku: 'UFX8029' }],
+            items: [{ quantity: 1, price: 250, description: 'AI LIKE A PRO - Grupo 1 [TESTE]', sku: 'UFX8029' }],
             customer: { name: fullName, email: String(email).trim(), phone_number: phone },
             order_nsu: orderNsu,
             redirect_url: REDIRECT_URL,
