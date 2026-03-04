@@ -3,7 +3,8 @@
 // e atualiza a coluna "Pago" no Google Sheets
 
 export async function onRequest({ request, env }) {
-    const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL;
+    const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL ||
+        'https://script.google.com/macros/s/AKfycbx9ktIdeMZs8CtB_7IA7dgWTBxnLsGoMxUlpsQPYW6poGJjN7_aHhlCPAyRjOzZLHkjwA/exec';
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
 
