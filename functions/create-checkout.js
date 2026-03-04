@@ -19,7 +19,7 @@ export async function onRequestOptions({ request }) {
 }
 
 // ctx é o terceiro parâmetro — necessário para ctx.waitUntil()
-export async function onRequestPost({ request, env, ctx }) {
+export async function onRequestPost({ request, env, waitUntil }) {
     const origin = request.headers.get('Origin') || '';
     const headers = { ...corsHeaders(origin), 'Content-Type': 'application/json' };
 
@@ -104,7 +104,7 @@ export async function onRequestPost({ request, env, ctx }) {
         const sheetsH = { 'Content-Type': 'application/json' };
         if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
 
-        ctx.waitUntil(
+        waitUntil(
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 headers: sheetsH,
@@ -131,7 +131,7 @@ export async function onRequestPost({ request, env, ctx }) {
 
         // ── Email de notificação — ctx.waitUntil() garante execução ───────────
         if (RESEND_API_KEY) {
-            ctx.waitUntil(
+            waitUntil(
                 fetch('https://api.resend.com/emails', {
                     method: 'POST',
                     headers: {

@@ -2,7 +2,7 @@
 // IMPORTANTE: usar ctx.waitUntil() para fire-and-forget
 // Sem isso, Cloudflare cancela fetches pendentes ao retornar o Response
 
-export async function onRequest({ request, env, ctx }) {
+export async function onRequest({ request, env, waitUntil }) {
     const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL ||
         'https://script.google.com/macros/s/AKfycbx9ktIdeMZs8CtB_7IA7dgWTBxnLsGoMxUlpsQPYW6poGJjN7_aHhlCPAyRjOzZLHkjwA/exec';
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
@@ -44,7 +44,7 @@ export async function onRequest({ request, env, ctx }) {
         const sheetsH = { 'Content-Type': 'application/json' };
         if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
 
-        ctx.waitUntil(
+        waitUntil(
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 headers: sheetsH,
