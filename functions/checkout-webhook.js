@@ -1,26 +1,23 @@
 // Cloudflare Pages Function — /functions/checkout-webhook.js
-// Recebe o webhook do InfinitePay quando o pagamento é aprovado
-// e atualiza a coluna "Pago" no Google Sheets
+// IMPORTANTE: usar ctx.waitUntil() para fire-and-forget
+// Sem isso, Cloudflare cancela fetches pendentes ao retornar o Response
 
-export async function onRequest({ request, env }) {
+export async function onRequest({ request, env, ctx }) {
     const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL ||
         'https://script.google.com/macros/s/AKfycbx9ktIdeMZs8CtB_7IA7dgWTBxnLsGoMxUlpsQPYW6poGJjN7_aHhlCPAyRjOzZLHkjwA/exec';
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
 
-    // ── Verificar o secret se estiver configurado ─────────────────────────
-    // O secret é passado como query param na webhook_url registrada no InfinitePay
+    // ── Verificar secret ──────────────────────────────────────────────────────
     if (WEBHOOK_SECRET) {
         const url = new URL(request.url);
         const receivedSecret = url.searchParams.get('secret') || '';
         if (receivedSecret !== WEBHOOK_SECRET) {
-            // Retorna 200 para não alertar possíveis atacantes com um 401
-            console.warn('Webhook rejeitado: secret inválido ou ausente');
+            console.warn('Webhook rejeitado: secret inválido');
             return new Response('OK', { status: 200 });
         }
     }
 
-    // InfinitePay envia POST quando o pagamento é aprovado
     if (request.method !== 'POST') {
         return new Response('OK', { status: 200 });
     }
@@ -31,13 +28,10 @@ export async function onRequest({ request, env }) {
         console.log('Payment webhook received:', JSON.stringify({
             order_nsu: payload.order_nsu,
             invoice_slug: payload.invoice_slug || payload.slug,
-            amount: payload.amount,
             paid_amount: payload.paid_amount,
             capture_method: payload.capture_method,
-            transaction_nsu: payload.transaction_nsu,
         }));
 
-        // Sem order_nsu não há como localizar o lead no Sheets
         if (!payload.order_nsu) {
             console.warn('Webhook sem order_nsu — Sheets não atualizado');
             return new Response(JSON.stringify({ received: true }), {
@@ -46,11 +40,11 @@ export async function onRequest({ request, env }) {
             });
         }
 
-        // ── Atualizar Google Sheets — Pago = Sim (fire-and-forget) ───────────
-        if (GOOGLE_SCRIPT_URL) {
-            const sheetsH = { 'Content-Type': 'application/json' };
-            if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
+        // ── Atualizar Google Sheets — ctx.waitUntil() garante execução ────────
+        const sheetsH = { 'Content-Type': 'application/json' };
+        if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
 
+        ctx.waitUntil(
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 headers: sheetsH,
@@ -70,12 +64,10 @@ export async function onRequest({ request, env }) {
             })
                 .then(r => r.text().then(t => {
                     if (!r.ok) console.error(`Sheets update falhou: HTTP ${r.status} — ${t}`);
-                    else console.log('Sheets update OK:', r.status);
+                    else console.log('Sheets update OK:', t);
                 }))
-                .catch(err => console.error('Sheets update error:', err));
-        } else {
-            console.warn('GOOGLE_SCRIPT_URL não configurado — Sheets não atualizado');
-        }
+                .catch(err => console.error('Sheets update error:', err))
+        );
 
         // InfinitePay exige resposta em < 1 segundo
         return new Response(JSON.stringify({ received: true }), {
@@ -85,7 +77,6 @@ export async function onRequest({ request, env }) {
 
     } catch (err) {
         console.error('Webhook error:', err);
-        // Sempre retorna 200 para InfinitePay não retentar indefinidamente
         return new Response('OK', { status: 200 });
     }
 }

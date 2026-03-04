@@ -1,6 +1,6 @@
 // Cloudflare Pages Function — /functions/create-checkout.js
-// Deploy automático junto com o site no Cloudflare Pages
-// Env vars configuradas em: Cloudflare Dashboard → Pages → ai-like-a-pro → Settings → Environment variables
+// IMPORTANTE: usar ctx.waitUntil() para fire-and-forget
+// Sem isso, Cloudflare cancela fetches pendentes ao retornar o Response
 
 const INFINITEPAY_HANDLE = 'leveltech';
 
@@ -13,14 +13,13 @@ function corsHeaders(origin) {
     };
 }
 
-// Handler para preflight CORS
 export async function onRequestOptions({ request }) {
     const origin = request.headers.get('Origin') || '';
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
 }
 
-// Handler principal — POST do formulário de checkout
-export async function onRequestPost({ request, env }) {
+// ctx é o terceiro parâmetro — necessário para ctx.waitUntil()
+export async function onRequestPost({ request, env, ctx }) {
     const origin = request.headers.get('Origin') || '';
     const headers = { ...corsHeaders(origin), 'Content-Type': 'application/json' };
 
@@ -31,7 +30,6 @@ export async function onRequestPost({ request, env }) {
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
 
-    // URL do webhook registrada no InfinitePay (aponta para este mesmo site)
     const WEBHOOK_BASE = 'https://growthclub.pro/checkout-webhook';
     const WEBHOOK_URL = WEBHOOK_SECRET
         ? `${WEBHOOK_BASE}?secret=${WEBHOOK_SECRET}`
@@ -41,7 +39,6 @@ export async function onRequestPost({ request, env }) {
         const body = await request.json();
         const { nome, sobrenome, email, whatsapp, linkedin } = body;
 
-        // Validação — campos obrigatórios
         if (!nome || !sobrenome || !email || !whatsapp) {
             return new Response(
                 JSON.stringify({ error: 'Campos obrigatórios: nome, sobrenome, email, whatsapp' }),
@@ -49,7 +46,6 @@ export async function onRequestPost({ request, env }) {
             );
         }
 
-        // Validação e formatação do telefone
         const phoneDigits = String(whatsapp).replace(/\D/g, '');
         if (phoneDigits.length < 10 || phoneDigits.length > 13) {
             return new Response(
@@ -59,8 +55,6 @@ export async function onRequestPost({ request, env }) {
         }
         const phone = '+' + (phoneDigits.startsWith('55') ? phoneDigits : '55' + phoneDigits);
         const fullName = `${String(nome).trim()} ${String(sobrenome).trim()}`;
-
-        // ID único de pedido — crypto.randomUUID() disponível no Cloudflare Workers
         const orderNsu = `LIKEAPRO-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
 
         // ── Criar link de checkout no InfinitePay ──────────────────────────────
@@ -100,18 +94,17 @@ export async function onRequestPost({ request, env }) {
             checkoutData.payment_url;
 
         if (!checkoutUrl) {
-            console.error('No checkout URL found in response:', checkoutText);
             return new Response(
                 JSON.stringify({ error: 'Checkout criado mas URL não encontrada.', data: checkoutData }),
                 { status: 502, headers }
             );
         }
 
-        // ── Google Sheets — registrar lead (fire-and-forget) ──────────────────
-        if (GOOGLE_SCRIPT_URL) {
-            const sheetsH = { 'Content-Type': 'application/json' };
-            if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
+        // ── Google Sheets — ctx.waitUntil() mantém o Worker vivo até concluir ─
+        const sheetsH = { 'Content-Type': 'application/json' };
+        if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
 
+        ctx.waitUntil(
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 headers: sheetsH,
@@ -130,45 +123,43 @@ export async function onRequestPost({ request, env }) {
                 }),
             })
                 .then(r => r.text().then(t => {
-                    if (!r.ok) console.error(`Google Sheets create falhou: HTTP ${r.status} — ${t}`);
-                    else console.log('Google Sheets create OK:', r.status);
+                    if (!r.ok) console.error(`Sheets create falhou: HTTP ${r.status} — ${t}`);
+                    else console.log('Sheets create OK:', t);
                 }))
-                .catch(err => console.error('Google Sheets create error:', err));
-        } else {
-            console.warn('GOOGLE_SCRIPT_URL não configurado — lead não salvo no Sheets');
-        }
+                .catch(err => console.error('Sheets create error:', err))
+        );
 
-        // ── Email de notificação — fire-and-forget (não bloqueia o redirect) ──
+        // ── Email de notificação — ctx.waitUntil() garante execução ───────────
         if (RESEND_API_KEY) {
-            fetch('https://api.resend.com/emails', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${RESEND_API_KEY}`,
-                },
-                body: JSON.stringify({
-                    from: 'AI Like a PRO <noreply@mail.thelevel.com.br>',
-                    to: 'caner@thelevel.com.br',
-                    subject: '🚀 Novo lead — checkout LIKE A PRO',
-                    text: [
-                        'Novo lead no checkout AI Like a PRO',
-                        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-                        '',
-                        `Nome:      ${fullName}`,
-                        `E-mail:    ${String(email).trim()}`,
-                        `WhatsApp:  ${phone}`,
-                        `LinkedIn:  ${linkedin || 'Não informado'}`,
-                        '',
-                        `Order NSU: ${orderNsu}`,
-                        `Data:      ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
-                        `Checkout:  ${checkoutUrl}`,
-                    ].join('\n'),
-                }),
-            })
-                .then(r => console.log('Resend email:', r.status))
-                .catch(err => console.error('Resend error:', err));
-        } else {
-            console.warn('RESEND_API_KEY não configurado — email de notificação não enviado');
+            ctx.waitUntil(
+                fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${RESEND_API_KEY}`,
+                    },
+                    body: JSON.stringify({
+                        from: 'AI Like a PRO <noreply@mail.thelevel.com.br>',
+                        to: 'caner@thelevel.com.br',
+                        subject: '🚀 Novo lead — checkout LIKE A PRO',
+                        text: [
+                            'Novo lead no checkout AI Like a PRO',
+                            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+                            '',
+                            `Nome:      ${fullName}`,
+                            `E-mail:    ${String(email).trim()}`,
+                            `WhatsApp:  ${phone}`,
+                            `LinkedIn:  ${linkedin || 'Não informado'}`,
+                            '',
+                            `Order NSU: ${orderNsu}`,
+                            `Data:      ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+                            `Checkout:  ${checkoutUrl}`,
+                        ].join('\n'),
+                    }),
+                })
+                    .then(r => console.log('Resend email:', r.status))
+                    .catch(err => console.error('Resend error:', err))
+            );
         }
 
         return new Response(JSON.stringify({ checkout_url: checkoutUrl }), { status: 200, headers });
