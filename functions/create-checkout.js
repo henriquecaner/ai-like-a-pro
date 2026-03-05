@@ -2,7 +2,8 @@
 // IMPORTANTE: usar ctx.waitUntil() para fire-and-forget
 // Sem isso, Cloudflare cancela fetches pendentes ao retornar o Response
 
-const INFINITEPAY_HANDLE = 'leveltech';
+// INFINITEPAY_HANDLE pode ser sobrescrito via env var no Cloudflare Pages
+const INFINITEPAY_HANDLE_DEFAULT = 'leveltech';
 
 function corsHeaders(origin) {
     const allowed = 'https://growthclub.pro';
@@ -18,17 +19,21 @@ export async function onRequestOptions({ request }) {
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
 }
 
-// ctx é o terceiro parâmetro — necessário para ctx.waitUntil()
+// waitUntil é desestruturado do context — garante que fetches async continuem após a Response
 export async function onRequestPost({ request, env, waitUntil }) {
     const origin = request.headers.get('Origin') || '';
     const headers = { ...corsHeaders(origin), 'Content-Type': 'application/json' };
 
+    const INFINITEPAY_HANDLE = env.INFINITEPAY_HANDLE || INFINITEPAY_HANDLE_DEFAULT;
     const RESEND_API_KEY = env.RESEND_API_KEY;
     const REDIRECT_URL = env.REDIRECT_URL || 'https://growthclub.pro/success.html';
-    const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL ||
-        'https://script.google.com/macros/s/AKfycbx9ktIdeMZs8CtB_7IA7dgWTBxnLsGoMxUlpsQPYW6poGJjN7_aHhlCPAyRjOzZLHkjwA/exec';
+    const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL || null;
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
+
+    if (!GOOGLE_SCRIPT_URL) {
+        console.warn('GOOGLE_SCRIPT_URL não configurada — lead não será salvo no Sheets');
+    }
 
     const WEBHOOK_BASE = 'https://growthclub.pro/checkout-webhook';
     const WEBHOOK_URL = WEBHOOK_SECRET
@@ -37,7 +42,11 @@ export async function onRequestPost({ request, env, waitUntil }) {
 
     try {
         const body = await request.json();
-        const { nome, sobrenome, email, whatsapp, linkedin } = body;
+        const nome = String(body.nome || '').trim();
+        const sobrenome = String(body.sobrenome || '').trim();
+        const email = String(body.email || '').trim();
+        const whatsapp = body.whatsapp;
+        const linkedin = String(body.linkedin || '').trim();
 
         if (!nome || !sobrenome || !email || !whatsapp) {
             return new Response(
@@ -47,21 +56,21 @@ export async function onRequestPost({ request, env, waitUntil }) {
         }
 
         const phoneDigits = String(whatsapp).replace(/\D/g, '');
-        if (phoneDigits.length < 10 || phoneDigits.length > 13) {
+        if (phoneDigits.length < 11 || phoneDigits.length > 13) {
             return new Response(
                 JSON.stringify({ error: 'Telefone inválido. Informe DDD + número (ex: 11999999999).' }),
                 { status: 400, headers }
             );
         }
         const phone = '+' + (phoneDigits.startsWith('55') ? phoneDigits : '55' + phoneDigits);
-        const fullName = `${String(nome).trim()} ${String(sobrenome).trim()}`;
+        const fullName = `${nome} ${sobrenome}`;
         const orderNsu = `LIKEAPRO-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
 
         // ── Criar link de checkout no InfinitePay ──────────────────────────────
         const infinitePayPayload = {
             handle: INFINITEPAY_HANDLE,
             items: [{ quantity: 1, price: 19700, description: 'AI LIKE A PRO - Grupo 1', sku: 'UFX8029' }],
-            customer: { name: fullName, email: String(email).trim(), phone_number: phone },
+            customer: { name: fullName, email: email, phone_number: phone },
             order_nsu: orderNsu,
             redirect_url: REDIRECT_URL,
             webhook_url: WEBHOOK_URL,
@@ -74,15 +83,16 @@ export async function onRequestPost({ request, env, waitUntil }) {
         });
 
         const checkoutText = await checkoutRes.text();
-        console.log('InfinitePay response:', checkoutRes.status, checkoutText);
 
         if (!checkoutRes.ok) {
+            console.error('InfinitePay error:', checkoutRes.status, checkoutText);
             return new Response(
-                JSON.stringify({ error: 'Erro ao criar checkout. Tente novamente.', detail: checkoutText }),
+                JSON.stringify({ error: 'Erro ao criar checkout. Tente novamente.' }),
                 { status: 502, headers }
             );
         }
 
+        console.log('InfinitePay response OK:', checkoutRes.status);
         let checkoutData;
         try { checkoutData = JSON.parse(checkoutText); }
         catch { checkoutData = { url: checkoutText.trim() }; }
@@ -94,40 +104,43 @@ export async function onRequestPost({ request, env, waitUntil }) {
             checkoutData.payment_url;
 
         if (!checkoutUrl) {
+            console.error('InfinitePay checkout URL não encontrada:', JSON.stringify(checkoutData));
             return new Response(
-                JSON.stringify({ error: 'Checkout criado mas URL não encontrada.', data: checkoutData }),
+                JSON.stringify({ error: 'Checkout criado mas URL não encontrada. Tente novamente.' }),
                 { status: 502, headers }
             );
         }
 
         // ── Google Sheets — ctx.waitUntil() mantém o Worker vivo até concluir ─
-        const sheetsH = { 'Content-Type': 'application/json' };
-        if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
+        if (GOOGLE_SCRIPT_URL) {
+            const sheetsH = { 'Content-Type': 'application/json' };
+            if (GOOGLE_SCRIPT_SECRET) sheetsH['X-Webhook-Secret'] = GOOGLE_SCRIPT_SECRET;
 
-        waitUntil(
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                headers: sheetsH,
-                body: JSON.stringify({
-                    action: 'create',
-                    Nome: nome,
-                    Sobrenome: sobrenome,
-                    Email: String(email).trim(),
-                    Telefone: phone,
-                    LinkedIn: linkedin || '',
-                    Pago: 'Não',
-                    order_nsu: orderNsu,
-                    items: 'AI LIKE A PRO - Grupo 1',
-                    created_at: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
-                    checkout_url: checkoutUrl,
-                }),
-            })
-                .then(r => r.text().then(t => {
-                    if (!r.ok) console.error(`Sheets create falhou: HTTP ${r.status} — ${t}`);
-                    else console.log('Sheets create OK:', t);
-                }))
-                .catch(err => console.error('Sheets create error:', err))
-        );
+            waitUntil(
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: sheetsH,
+                    body: JSON.stringify({
+                        action: 'create',
+                        Nome: nome,
+                        Sobrenome: sobrenome,
+                        Email: email,
+                        Telefone: phone,
+                        LinkedIn: linkedin || '',
+                        Pago: 'Não',
+                        order_nsu: orderNsu,
+                        items: 'AI LIKE A PRO - Grupo 1',
+                        created_at: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
+                        checkout_url: checkoutUrl,
+                    }),
+                })
+                    .then(r => r.text().then(t => {
+                        if (!r.ok) console.error(`Sheets create falhou: HTTP ${r.status} — ${t}`);
+                        else console.log('Sheets create OK:', t);
+                    }))
+                    .catch(err => console.error('Sheets create error:', err))
+            );
+        }
 
         // ── Email de notificação — ctx.waitUntil() garante execução ───────────
         if (RESEND_API_KEY) {
@@ -147,7 +160,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
                             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
                             '',
                             `Nome:      ${fullName}`,
-                            `E-mail:    ${String(email).trim()}`,
+                            `E-mail:    ${email}`,
                             `WhatsApp:  ${phone}`,
                             `LinkedIn:  ${linkedin || 'Não informado'}`,
                             '',

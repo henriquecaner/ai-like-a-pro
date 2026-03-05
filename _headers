@@ -1,13 +1,17 @@
 # Cloudflare Pages — Headers de cache e segurança
 
-# CSS e JS: cache agressivo (1 ano) — ideal pois nomes mudam com cada versão
+# CSS e JS: cache de 24h com stale-while-revalidate
+# ATENÇÃO: não usar "immutable" sem cache-busting por hash no nome do arquivo.
+# Com "immutable", usuários que já visitaram o site NÃO receberão atualizações
+# de CSS/JS pelo tempo de max-age. Usar ?v=YYYYMMDD nos links do HTML é suficiente
+# para invalidar o cache quando necessário.
 /style.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
 
 /main.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
 
-# Imagens: cache longo
+# Imagens: cache longo (imagens raramente mudam)
 /*.png
   Cache-Control: public, max-age=31536000, immutable
 
@@ -17,12 +21,13 @@
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML: sempre revalidar (para garantir que a última versão seja servida)
+# HTML: sempre revalidar + headers de segurança
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';
 
 # Página raiz
 /
@@ -30,3 +35,4 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';
