@@ -1380,7 +1380,7 @@ details[open] .faq-icon::after {
   }
 
   .title-h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .pull-quote {
@@ -1431,7 +1431,7 @@ details[open] .faq-icon::after {
 /* ===== #10 HERO MOBILE MID-RANGE (375-767px) ===== */
 @media (min-width: 375px) and (max-width: 767px) {
   .title-h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .section-title {
