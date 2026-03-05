@@ -1368,7 +1368,7 @@ details[open] .faq-icon::after {
 
 @media (max-width: 767px) {
   .hero {
-    padding: 9.5rem 0 4.5rem;
+    padding: 11rem 0 4.5rem;
   }
 
   .section-pad {
@@ -1380,7 +1380,7 @@ details[open] .faq-icon::after {
   }
 
   .title-h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .pull-quote {
@@ -1391,8 +1391,8 @@ details[open] .faq-icon::after {
 
   .btn-xl,
   .btn-large {
-    font-size: 0.9375rem;
-    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    padding: 0.875rem 1.25rem;
   }
 
   .hero-actions .btn {
@@ -1431,7 +1431,7 @@ details[open] .faq-icon::after {
 /* ===== #10 HERO MOBILE MID-RANGE (375-767px) ===== */
 @media (min-width: 375px) and (max-width: 767px) {
   .title-h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .section-title {
