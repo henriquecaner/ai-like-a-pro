@@ -1367,16 +1367,16 @@ details[open] .faq-icon::after {
 }
 
 @media (max-width: 767px) {
-  .hero {
-    padding: 11rem 0 4.5rem;
-  }
-
   .section-pad {
     padding: 3rem 0;
   }
 
   .section-pad-visual {
     padding: 4rem 0;
+  }
+
+  .hero {
+    padding: 8.5rem 0 4.5rem;
   }
 
   .title-h1 {
