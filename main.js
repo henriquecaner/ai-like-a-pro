@@ -9,6 +9,7 @@ function _getFocusable(el) {
 
 function _trapFocus(e) {
   const box = this.querySelector('.modal-box');
+  if (!box) return;
   const focusable = _getFocusable(box);
   if (!focusable.length) return;
   const first = focusable[0], last = focusable[focusable.length - 1];
@@ -28,7 +29,8 @@ function openModal(id) {
   _lastFocused = document.activeElement;
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
-  const focusable = _getFocusable(overlay);
+  const box = overlay.querySelector('.modal-box');
+  const focusable = _getFocusable(box || overlay);
   if (focusable.length) focusable[0].focus();
   overlay.addEventListener('keydown', _trapFocus);
 }
@@ -104,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== CHECKOUT FORM =====
   const form = document.getElementById('checkout-form');
-  const submitBtn = document.getElementById('checkout-submit');
-  const errorDiv = document.getElementById('checkout-form-error');
   const EDGE_FN_URL = '/create-checkout';
 
   if (form) {
+    const submitBtn = document.getElementById('checkout-submit');
+    const errorDiv = document.getElementById('checkout-form-error');
     // M-03: flag para prevenir duplo envio (clique duplo / rede lenta)
     let isSubmitting = false;
 

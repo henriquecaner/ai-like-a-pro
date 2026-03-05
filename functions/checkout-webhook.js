@@ -1,14 +1,9 @@
 // Cloudflare Pages Function — /functions/checkout-webhook.js
-// IMPORTANTE: usar ctx.waitUntil() para fire-and-forget
-// Sem isso, Cloudflare cancela fetches pendentes ao retornar o Response
+// waitUntil é desestruturado do context — garante que fetches async continuem após a Response
 
 export async function onRequest({ request, env, waitUntil }) {
     const GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL || null;
     const GOOGLE_SCRIPT_SECRET = env.GOOGLE_SCRIPT_SECRET || '';
-
-    if (!GOOGLE_SCRIPT_URL) {
-        console.warn('GOOGLE_SCRIPT_URL não configurada — pagamento não será marcado no Sheets');
-    }
     const WEBHOOK_SECRET = env.WEBHOOK_SECRET || '';
 
     // ── Verificar secret ──────────────────────────────────────────────────────

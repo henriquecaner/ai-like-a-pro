@@ -19,7 +19,7 @@ export async function onRequestOptions({ request }) {
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
 }
 
-// ctx é o terceiro parâmetro — necessário para ctx.waitUntil()
+// waitUntil é desestruturado do context — garante que fetches async continuem após a Response
 export async function onRequestPost({ request, env, waitUntil }) {
     const origin = request.headers.get('Origin') || '';
     const headers = { ...corsHeaders(origin), 'Content-Type': 'application/json' };
@@ -42,7 +42,11 @@ export async function onRequestPost({ request, env, waitUntil }) {
 
     try {
         const body = await request.json();
-        const { nome, sobrenome, email, whatsapp, linkedin } = body;
+        const nome = String(body.nome || '').trim();
+        const sobrenome = String(body.sobrenome || '').trim();
+        const email = String(body.email || '').trim();
+        const whatsapp = body.whatsapp;
+        const linkedin = String(body.linkedin || '').trim();
 
         if (!nome || !sobrenome || !email || !whatsapp) {
             return new Response(
@@ -59,14 +63,14 @@ export async function onRequestPost({ request, env, waitUntil }) {
             );
         }
         const phone = '+' + (phoneDigits.startsWith('55') ? phoneDigits : '55' + phoneDigits);
-        const fullName = `${String(nome).trim()} ${String(sobrenome).trim()}`;
+        const fullName = `${nome} ${sobrenome}`;
         const orderNsu = `LIKEAPRO-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
 
         // ── Criar link de checkout no InfinitePay ──────────────────────────────
         const infinitePayPayload = {
             handle: INFINITEPAY_HANDLE,
             items: [{ quantity: 1, price: 19700, description: 'AI LIKE A PRO - Grupo 1', sku: 'UFX8029' }],
-            customer: { name: fullName, email: String(email).trim(), phone_number: phone },
+            customer: { name: fullName, email: email, phone_number: phone },
             order_nsu: orderNsu,
             redirect_url: REDIRECT_URL,
             webhook_url: WEBHOOK_URL,
@@ -79,7 +83,6 @@ export async function onRequestPost({ request, env, waitUntil }) {
         });
 
         const checkoutText = await checkoutRes.text();
-        console.log('InfinitePay response:', checkoutRes.status, checkoutText);
 
         if (!checkoutRes.ok) {
             console.error('InfinitePay error:', checkoutRes.status, checkoutText);
@@ -89,6 +92,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
             );
         }
 
+        console.log('InfinitePay response OK:', checkoutRes.status);
         let checkoutData;
         try { checkoutData = JSON.parse(checkoutText); }
         catch { checkoutData = { url: checkoutText.trim() }; }
@@ -120,7 +124,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
                         action: 'create',
                         Nome: nome,
                         Sobrenome: sobrenome,
-                        Email: String(email).trim(),
+                        Email: email,
                         Telefone: phone,
                         LinkedIn: linkedin || '',
                         Pago: 'Não',
@@ -156,7 +160,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
                             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
                             '',
                             `Nome:      ${fullName}`,
-                            `E-mail:    ${String(email).trim()}`,
+                            `E-mail:    ${email}`,
                             `WhatsApp:  ${phone}`,
                             `LinkedIn:  ${linkedin || 'Não informado'}`,
                             '',
