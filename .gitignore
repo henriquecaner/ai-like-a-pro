@@ -1,6 +1,11 @@
 # Dependências locais (nunca vão para o servidor)
 node_modules/
 
+# Variáveis de ambiente — NUNCA fazer commit de .env
+.env
+.env.local
+.env.*.local
+
 # Sistema operacional
 .DS_Store
 Thumbs.db
@@ -9,3 +14,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Documentação interna de IA — não é documentação do projeto
+Humanizer-agent.md

@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('cf-email').classList.add('input-error'); hasError = true;
       }
-      if (!whatsapp || whatsapp.replace(/\D/g, '').length < 10) {
+      if (!whatsapp || whatsapp.replace(/\D/g, '').length < 11) {
         document.getElementById('cf-whatsapp').classList.add('input-error'); hasError = true;
       }
 
