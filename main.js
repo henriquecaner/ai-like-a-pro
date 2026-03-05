@@ -92,6 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
     { threshold: 0.15 }
   );
   reveals.forEach(el => observer.observe(el));
+
+  // ===== MOBILE CTA OBSERVER =====
+  const mobileCta = document.getElementById('mobileCta');
+  const authoritySection = document.getElementById('authority');
+  if (mobileCta && authoritySection) {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          mobileCta.classList.add('active');
+        } else if (entry.boundingClientRect.top > 0) {
+          mobileCta.classList.remove('active');
+        }
+      });
+    }, { threshold: 0 });
+    ctaObserver.observe(authoritySection);
+  }
   // ===== WHATSAPP MASK =====
   const whatsInput = document.getElementById('cf-whatsapp');
   if (whatsInput) {
