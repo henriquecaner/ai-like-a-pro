@@ -1367,6 +1367,37 @@ details[open] .faq-icon::after {
 }
 
 @media (max-width: 767px) {
+  .hero {
+    padding: 7rem 0 4.5rem;
+  }
+
+  .section-pad {
+    padding: 3rem 0;
+  }
+
+  .section-pad-visual {
+    padding: 4rem 0;
+  }
+
+  .title-h1 {
+    font-size: 2.25rem;
+  }
+
+  .pull-quote {
+    font-size: 1.125rem;
+    padding-left: 1rem;
+    margin: 2rem 0;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-microcopy {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
   .mobile-cta-bar {
     display: none;
   }
@@ -1394,7 +1425,7 @@ details[open] .faq-icon::after {
 /* ===== #10 HERO MOBILE MID-RANGE (375-767px) ===== */
 @media (min-width: 375px) and (max-width: 767px) {
   .title-h1 {
-    font-size: 2.75rem;
+    font-size: 2.25rem;
   }
 
   .section-title {
@@ -1402,7 +1433,7 @@ details[open] .faq-icon::after {
   }
 
   .final-cta-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
 
