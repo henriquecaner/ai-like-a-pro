@@ -184,7 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ nome, sobrenome, email, whatsapp, linkedin }),
         });
+
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          const textRes = await res.text();
+          console.error('Resposta não-JSON recebida:', res.status, textRes.substring(0, 200));
+          throw new Error('Serviço indisponível no momento. Por favor, tente novamente mais tarde.');
+        }
+
         const data = await res.json();
+
         if (!res.ok || !data.checkout_url) {
           throw new Error(data.error || 'Erro ao gerar checkout. Tente novamente.');
         }
